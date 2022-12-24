@@ -126,71 +126,6 @@
                 <div class="container">
     
     
-        <div class="post-toc">
-    <div class="tocbot-list">
-    </div>
-    <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
-        <a onclick="go_top()">Back to top</a>
-        <a onclick="go_bottom()">Go to bottom</a>
-    </div>
-</div>
-
-<script>
-    var tocbot_timer;
-    var DEPTH_MAX = 6; // 为 6 时展开所有
-    var tocbot_default_config = {
-        tocSelector: '.tocbot-list',
-        contentSelector: '.post-content',
-        headingSelector: 'h1, h2, h3, h4, h5',
-        orderedList: false,
-        scrollSmooth: true,
-        onClick: extend_click,
-    };
-
-    function extend_click() {
-        clearTimeout(tocbot_timer);
-        tocbot_timer = setTimeout(function() {
-            tocbot.refresh(obj_merge(tocbot_default_config, {
-                hasInnerContainers: true
-            }));
-        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
-    }
-
-    document.ready(function() {
-        tocbot.init(obj_merge(tocbot_default_config, {
-            collapseDepth: 1
-        }));
-    });
-
-    function expand_toc() {
-        var b = document.querySelector('.tocbot-toc-expand');
-        var expanded = b.getAttribute('data-expanded');
-        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
-        tocbot.refresh(obj_merge(tocbot_default_config, {
-            collapseDepth: expanded ? 1 : DEPTH_MAX
-        }));
-        b.innerText = expanded ? 'Expand all' : 'Collapse all';
-    }
-
-    function go_top() {
-        window.scrollTo(0, 0);
-    }
-
-    function go_bottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
-    function obj_merge(target, source) {
-        for (var item in source) {
-            if (source.hasOwnProperty(item)) {
-                target[item] = source[item];
-            }
-        }
-        return target;
-    }
-</script>
-    
 
     
     <article class="post-wrap">
@@ -244,9 +179,12 @@
 </blockquote>
 </li>
 </ul>
-<hr>
-<h1 id="【LINE-BOT-翻譯機器人】-系列"><a href="#【LINE-BOT-翻譯機器人】-系列" class="headerlink" title="【LINE BOT 翻譯機器人】 系列"></a>【LINE BOT 翻譯機器人】 系列</h1><p><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10309597">(1) 操作說明與應用</a><br><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10309599">(2) 建立LINE BOT及Google Apps Script專案</a><br><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10309709">(3) 連結 Google sheet 與 LanguageApp 翻譯功能</a><br><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10309771/">(4) 用 Google Apps Script API 傳送 LINE 訊息</a><br><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10309772">(5) LINE 各事件 event &amp; 各訊息 Message 及 官方文獻</a><br><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10309779">(6) 為各位呈現  原始程式碼  啦~~</a></p>
-
+</div></p><script>
+    setTimeout(function(){
+        document.getElementsByClassName("post-tags")[0].innerHTML='<div><a href="javascript:window.history.back();">back</a><span></span><a href="/">home</a></div>'
+        document.getElementsByClassName("copyright")[0].innerHTML='<span>© Albert Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & Theme by <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>'
+    },1000);
+</script><p><div>
         </div>
 
         
@@ -258,22 +196,7 @@
                     </p>
                 
                 
-                    <p class="copyright-item">
-                        <span>Permalink:</span>
-                        <span><a href="https://albert20699.github.io/2022/11/15/LINE_BOT_5/">https://albert20699.github.io/2022/11/15/LINE_BOT_5/</a></span>
-                    </p>
                 
-                
-                    <p class="copyright-item">
-                        <span>License:</span>
-                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
-                    </p>
-                
-                
-                     <p class="copyright-item">
-                         <span>Slogan:</span>
-                         <span>Do you believe in <strong>DESTINY</strong>?</span>
-                     </p>
                 
 
             </section>

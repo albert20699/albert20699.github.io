@@ -879,10 +879,10 @@ header label {
   line-height: 1.7;
 }
 .post-content img {
-  /* display: block; */
+  display: block;
   max-width: 100%;
   height: auto;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   overflow: hidden;
 }
 .post-content img[data-action="zoom"] {
