@@ -77,8 +77,6 @@
                 
                     <a class="menu-item" href="/archives">Posts</a>
                 
-                    <a class="menu-item" href="/category">Categories</a>
-                
                     <a class="menu-item" href="/about">About</a>
                 
                 <input id="switch_default" type="checkbox" class="switch_default">
@@ -99,8 +97,6 @@
             <div class="menu" id="mobile-menu">
                 
                     <a class="menu-item" href="/archives">Posts</a>
-                
-                    <a class="menu-item" href="/category">Categories</a>
                 
                     <a class="menu-item" href="/about">About</a>
                 
@@ -158,9 +154,10 @@
 <h1 id="感謝回饋"><a href="#感謝回饋" class="headerlink" title="感謝回饋"></a>感謝回饋</h1><p>一個LINE BOT的完成，都必須以足夠的知識與資料為基底，所以我非常感謝各討論區與平台上的總總資源。<br>另外，小弟不才，也歡迎大家多多討論，有任何問題與機器人的建議都可以勇敢跟我說，我會非常感激你的。</p>
 </div></p><script>
     setTimeout(function(){
-        document.getElementsByClassName("post-tags")[0].innerHTML='<div><a href="javascript:window.history.back();">back</a><span></span><a href="/">home</a></div>'
+        document.getElementsByClassName("post-tags")[0].innerHTML='<div><span></span><span class="tag"></span></div><div><a href="javascript:window.history.back();">back</a><span> . </span><a href="/">home</a></div>'
         document.getElementsByClassName("copyright")[0].innerHTML='<span>© Albert Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & Theme by <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>'
-    },1000);
+        document.getElementsByClassName("post-time")[0].innerHTML=document.getElementsByClassName("post-time")[0].innerText.replace("00:00:00","")
+    },500);
 </script><p><div>
 
         </div>
@@ -212,9 +209,5 @@
 
     </div>
 </body>
-<script>
-    // document.getElementsByClassName("post-time")[0].innerHTML="123"
-    document.getElementsByClassName("post-time")[0].innerHTML=JSON.stringify(document.getElementsByClassName("post-time")[0]) +"123"
-    // document.getElementsByClassName("post-time")[0].innerHTML=document.getElementsByClassName("post-time")[0].replace("00:00:00", "")
-    </script>
+
 </html>

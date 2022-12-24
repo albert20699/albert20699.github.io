@@ -885,6 +885,13 @@ header label {
   /* margin: 0 auto; */
   overflow: hidden;
 }
+.my_img img {
+  position: absolute;
+  left: 60%;
+  top: 10%;
+  width: 35%;
+  border-radius: 20px;
+}
 .post-content img[data-action="zoom"] {
   cursor: zoom-in;
 }
