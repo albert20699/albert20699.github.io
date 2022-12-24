@@ -6,7 +6,7 @@
   <link href="https://albert20699.github.io/atom.xml" rel="self"/>
   
   <link href="https://albert20699.github.io/"/>
-  <updated>2022-12-24T05:42:08.498Z</updated>
+  <updated>2022-12-24T05:48:21.546Z</updated>
   <id>https://albert20699.github.io/</id>
   
   <author>
@@ -21,8 +21,15 @@
     <link href="https://albert20699.github.io/2022/12/15/hexo-web/"/>
     <id>https://albert20699.github.io/2022/12/15/hexo-web/</id>
     <published>2022-12-15T13:53:56.000Z</published>
-    <updated>2022-12-24T05:42:08.498Z</updated>
+    <updated>2022-12-24T05:48:21.546Z</updated>
     
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我人生中的第一個專案就是開發出一個能夠幫助我生活上大小事情的LINE BOT，其中功能也是相當的多元，從youbike站點回傳、股票到達上下限通知、每日自動爬日曆後發出提醒通知等等，每一項都是我因為生活上的不便進而產生出來的，慢慢的也讓我的生活中大小事情都由這個被我大雜燴的LINE BOT來幫我解決。</p><h1 id="發文動機"><a href="#發文動機" class="headerlink" title="發文動機"></a>發文動機</h1><p>其中在我那大雜燴的LINE BOT中，有一個翻譯的功能廣受好評，於是我就打算特別做一個專屬翻譯的LINE BOT來發表在公開網站讓打家能夠來使用，不管是能夠有更多的人來使用這機器人，還是經由我的分享後也想自己研究LINE BOT的人，都是我非常樂見的。<strong>另外，這是篇文會是著重介紹這機器人的操作與應用喔~~~</strong></p><hr><h1 id="LINE-BOT"><a href="#LINE-BOT" class="headerlink" title="LINE BOT"></a>LINE BOT</h1><p>這是一個專門給群組翻譯的機器人，在設定好群組內需要翻譯的語言後，之後在這<strong>對群組內全部的對話</strong>都會進行翻譯，翻譯成所有被選擇過的語言。</p><p>廢話不多說，直接上機器人啦~~~<br><a href="https://line.me/R/ti/p/%40315ajptl">https://line.me/R/ti/p/%40315ajptl</a><br><img src="https://raw.githubusercontent.com/albert20699/linebot/main/Translator/messageImage_1667489288623.jpg"></p><h1 id="操作示範"><a href="#操作示範" class="headerlink" title="操作示範"></a>操作示範</h1><h3 id="1-首先將LINE-BOT機器人加入為好友"><a href="#1-首先將LINE-BOT機器人加入為好友" class="headerlink" title="1.首先將LINE BOT機器人加入為好友"></a>1.首先將LINE BOT機器人加入為好友</h3><h3 id="2-把機器人邀請至想要進行翻譯的群組，加入後即會跳出提示的訊息"><a href="#2-把機器人邀請至想要進行翻譯的群組，加入後即會跳出提示的訊息" class="headerlink" title="2.把機器人邀請至想要進行翻譯的群組，加入後即會跳出提示的訊息"></a>2.把機器人邀請至想要進行翻譯的<strong>群組</strong>，加入後即會跳出提示的訊息</h3><p><img src="https://raw.githubusercontent.com/albert20699/linebot/main/Translator/ASDASD.jpg"></p><h3 id="3-點選想要在這個群組被翻譯的語言"><a href="#3-點選想要在這個群組被翻譯的語言" class="headerlink" title="3.點選想要在這個群組被翻譯的語言"></a>3.點選想要在這個群組被翻譯的語言</h3><h3 id="4-點選設定的途中或尚未設定完成前，若想要更改點選過的設定，可以使用重製鍵"><a href="#4-點選設定的途中或尚未設定完成前，若想要更改點選過的設定，可以使用重製鍵" class="headerlink" title="4.點選設定的途中或尚未設定完成前，若想要更改點選過的設定，可以使用重製鍵"></a>4.點選設定的途中或尚未設定完成前，若想要更改點選過的設定，可以使用<strong>重製鍵</strong></h3><p><img src="https://raw.githubusercontent.com/albert20699/linebot/main/Translator/AASSS.jpg"></p><h3 id="5-若無點選任何語言或尚未設定完成前，都將無法進行翻譯"><a href="#5-若無點選任何語言或尚未設定完成前，都將無法進行翻譯" class="headerlink" title="5.若無點選任何語言或尚未設定完成前，都將無法進行翻譯"></a>5.若無點選任何語言或尚未設定完成前，都將無法進行翻譯</h3><p><img src="https://raw.githubusercontent.com/albert20699/linebot/main/Translator/AAASSS.jpg"></p><h3 id="6-若已經完成設定，想要更改設定語言，只需把機器人踢出群組再重新加入即可"><a href="#6-若已經完成設定，想要更改設定語言，只需把機器人踢出群組再重新加入即可" class="headerlink" title="6.若已經完成設定，想要更改設定語言，只需把機器人踢出群組再重新加入即可"></a>6.若已經完成設定，想要更改設定語言，只需把機器人踢出群組再重新加入即可</h3><p><img src="https://raw.githubusercontent.com/albert20699/linebot/main/Translator/QQWWEE.jpg"></p><h3 id="7最後設定完成並檢視成果-只會有純文字會進行翻譯"><a href="#7最後設定完成並檢視成果-只會有純文字會進行翻譯" class="headerlink" title="7最後設定完成並檢視成果(只會有純文字會進行翻譯)"></a>7最後設定完成並檢視成果(只會有<strong>純文字</strong>會進行翻譯)</h3><p><img src="https://raw.githubusercontent.com/albert20699/linebot/main/Translator/QQWWEEE.jpg"></p><hr><h1 id="感謝回饋"><a href="#感謝回饋" class="headerlink" title="感謝回饋"></a>感謝回饋</h1><p>一個LINE BOT的完成，都必須以足夠的知識與資料為基底，所以我非常感謝各討論區與平台上的總總資源。<br>另外，小弟不才，也歡迎大家多多討論，有任何問題與機器人的建議都可以勇敢跟我說，我會非常感激你的。</p><hr><p>【LINE BOT 翻譯機器人】 系列<br><a href="https://ithelp.ithome.com.tw/articles/10309597">(1) 操作說明與應用</a><br><a href="https://ithelp.ithome.com.tw/articles/10309599">(2) 建立LINE BOT及Google Apps Script專案</a><br><a href="https://ithelp.ithome.com.tw/articles/10309709">(3) 連結 Google sheet 與 LanguageApp 翻譯功能</a><br><a href="https://ithelp.ithome.com.tw/articles/10309771/">(4) 用 Google Apps Script API 傳送 LINE 訊息</a><br><a href="https://ithelp.ithome.com.tw/articles/10309772">(5) LINE 各事件 event &amp; 各訊息 Message 及 官方文獻</a><br><a href="https://ithelp.ithome.com.tw/articles/10309779">(6) 為各位呈現  原始程式碼  啦~~</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;我人生中的第一個專案就是開發出一個能夠幫助我生活上大小事情的LINE BOT，其中功能也是相當的多元，從youbike站點回傳、股票到達上下</summary>
+      
     
     
     
@@ -33,8 +40,8 @@
     <title>Hello World</title>
     <link href="https://albert20699.github.io/2022/12/08/hello-world/"/>
     <id>https://albert20699.github.io/2022/12/08/hello-world/</id>
-    <published>2022-12-08T15:32:12.958Z</published>
-    <updated>2022-12-15T14:29:58.466Z</updated>
+    <published>2022-12-08T13:53:56.000Z</published>
+    <updated>2022-12-24T05:45:08.780Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
     
