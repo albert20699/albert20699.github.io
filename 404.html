@@ -15,7 +15,7 @@
 
 
 
-<title>Albert Wang</title>
+<title>404 - Page not found | Hexo</title>
 
 
 
@@ -119,56 +119,40 @@
     }
 </script>
             <div class="main">
-                
-    <div class="container profile-container">
-    <div class="intro">
-        <div class="avatar">
-            <a href="/archives"><img src="/image/F.jpg"></a>
-        </div>
-        <div class="nickname">Albert Wang</div>
-        <div class="description"><p>Falling is the guarantee of growth and the treasure of learning.</p>
-</div>
-        <div class="links">
-            
-                
-                    <a class="link-item" title="Blog" href="/archives">
-                        
-                        
-                            <i class="iconfont icon-blog"></i>
-                        
-                    </a>
-                
-                    <a class="link-item" title="Line" target="_blank" rel="noopener" href="https://line.me/ti/p/jmQ7NUoDUH">
-                        
-                        
-                            <i class="iconfont icon-link"></i>
-                        
-                    </a>
-                
-                    <a class="link-item" title="FaceBook" target="_blank" rel="noopener" href="https://www.facebook.com/profile.php?id=100007126456481">
-                        
-                        
-                            <i class="iconfont icon-facebook"></i>
-                        
-                    </a>
-                
-                    <a class="link-item" title="Instagram" target="_blank" rel="noopener" href="https://www.instagram.com/wangzhengyan1219/">
-                        
-                        
-                            <i class="iconfont icon-instagram"></i>
-                        
-                    </a>
-                
-            
-        </div>
-    </div>
-</div>
+                <div class="container">
+    <article class="post-wrap page">
+        
+        <section class="post-content">
+            <!-- markdownlint-disable MD039 MD033 -->
 
+<h1 id="這是一個不存在的頁面"><a href="#這是一個不存在的頁面" class="headerlink" title="這是一個不存在的頁面"></a>這是一個不存在的頁面</h1><p>很抱歉，你目前存取的頁面並不存在。</p>
+<p>自動在約 <span id="timeout">6</span> 秒後返回首頁。</p>
+<p>如果你很急著想看文章，你可以 <strong><a href="https://albert20699.github.io/">點這裡</a></strong> 返回首頁。</p>
+<script>
+let countTime = 6;
+
+function count() {
+  
+  document.getElementById('timeout').textContent = countTime;
+  countTime -= 1;
+  if(countTime === 0){
+    location.href = 'https://albert20699.github.io/'; // 記得改成自己網址 Url
+  }
+  setTimeout(() => {
+    count();
+  }, 1000);
+}
+
+count();
+</script>
+        </section>
+    </article>
+</div>
 
             </div>
             <footer id="footer" class="footer">
     <div class="copyright">
-        <span>© Albert Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & Theme by <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+        <span>© Albert Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
     </div>
 </footer>
 
