@@ -1,4 +1,6 @@
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -237,7 +239,7 @@
 			opacity: 0;
 		}
 
-		#upload_btn {
+		#uploadBtn {
 			margin-right: 5px;
 		}
 
@@ -300,7 +302,6 @@
 				url('iconfont.ttf?t=1585328536727') format('truetype'),
 				/* iOS 4.1- */
 				url('iconfont.svg?t=1585328536727#iconfont') format('svg');
-
 		}
 	</style>
 </head>
@@ -321,32 +322,23 @@
 		<div class="form-container" style="max-width: 80%; width: auto; max-height: 90%;">
 			<div style="display: flex; gap: 15px; align-items: center; ">
 				<h2>選擇想要附加宣傳的卡片</h2>
-				<button onclick="close_promotional_card()">返回</button>
+				<button onclick="closePromotionalCard()">返回</button>
 			</div>
 			<div class="slider" id="slider" style="zoom: 0.7;">
-				<div class="card promotionalCard" onclick="selectPromotionalCard(this)">
-					<div class="chatbox" style="pointer-events: none;">
-						<div id="flex2html_promotional_1"></div>
-					</div>
-				</div>
-				<div class="card promotionalCard" onclick="selectPromotionalCard(this)">
-					<div class="chatbox" style="pointer-events: none;">
-						<div id="flex2html_promotional_2"></div>
-					</div>
-				</div>
+				<!-- 這裡將會放入  promotional card 宣傳卡片 -->
 			</div>
 		</div>
 	</div>
 
-	<div class="hidden_forward">
+	<div class="hiddenForward">
 		<div class="form-container">
 			<div style="display: flex; justify-content: space-between; align-items: center; width: 310px">
 				<h1 style="font-size:1.8em;">LIFF Card Share</h1>
-				<button onclick="close_flex()" style="height: 40px">返回</button>
+				<button onclick="closeFlex()" style="height: 40px">返回</button>
 			</div>
 			<div style="display: flex; justify-content: space-between; width: 310px">
 				<div class="links">
-					<a title="Share by Line" onclick="shareButton_line()">
+					<a title="Share by Line" onclick="shareButtonLine()">
 						<i class="iconfont fab fa-line"></i>
 					</a>
 					<a title="Share by LinkedIn" id="shareButton_linkedin" onclick="shareButton_linkedin()" style="display: none">
@@ -390,13 +382,13 @@
 			<div class="form-group">
 				<div style="display: flex;justify-content: space-between; width: 310px ;">
 					<button onclick="show_flex()">查看卡片</button>
-					<button onclick="show_promotional_card()">附加宣傳卡片</button>
+					<button onclick="showPromotionalCard()">附加宣傳卡片</button>
 				</div>
 				<div class="form-group">
 					<label>大圖 URL</label>
 					<form>
 						<label for="upload">
-							<input type="button" id="upload_btn" value="點我上傳" />
+							<input type="button" id="uploadBtn" value="點我上傳" />
 							<input type="file" id="upload" accept="image/*" />
 						</label>
 						<span id="upload_text"></span>
@@ -441,38 +433,13 @@
 						<span id="textColor">#081F58FF</span>
 					</div>
 				</div>
-				<!-- <div class="form-group">
-            <label>文字內容3 URL</label>
-            <input id="textContent_3_url" style="width: 100%;" type="text" placeholder="https://albert20699.github.io/">
-        </div>
-        <div class="form-group">
-            <label>公司單位</label>
-            <input id="companyUnit" style="width: 100%;" type=" text" placeholder="呈璽 Mtvs">
-        </div>
-        <div class="form-group">
-            <label>分享卡片</label>
-            <input id="share_card" style="width: 100%;" type="text" placeholder="分享卡片">
-        </div>
-        <div class="form-group">
-            <label>收藏卡片</label>
-            <input id="keep_card" style="width: 100%;" type="text" placeholder="收藏卡片">
-        </div>
-        <div class="form-group">
-            <label>卡片描述</label>
-            <input id="cardDescription" style="width: 100%;" type="text"
-                placeholder="以上資料由【呈壐】整理自台北燈會官網，可點文字連結或下載詳細資料。歡迎加入【呈璽】官LINE@不再錯過精彩訊息喔~~">
-        </div>
-        <div class="form-group">
-            <label>背景顏色</label>
-            <input id="bgColor" style="width: 100%;" type="text" placeholder="#BA0101FF">
-        </div> -->
 			</div>
 		</div>
 
 		<script>
-			var mainTitle_1, mainTitle_2, subTitle_1, subTitle_2, textContent_1, textContent_1_url, textContent_2, textContent_2_url, textContent_3, textContent_3_url, companyUnit, share_card, keep_card, cardDescription, bgColor, textColor, card_img_url;
+			var mainTitle_1, mainTitle_2, subTitle_1, subTitle_2, textContent_1, textContent_1_url, textContent_2, textContent_2_url, textContent_3, textColor, card_img_url;
 			var buttonClickFlag = false;
-			var flexJson, userId, readCount
+			var flexJson, flexJson_1, userId, readCount, flexJsonMessage, cardJsonPromotional
 
 			function readShowCardData() {
 				return JSON.stringify({
@@ -487,12 +454,6 @@
 					textContent_3: document.getElementById("textContent_3").value || "",
 					textColor: document.getElementById("textColor").textContent || "",
 					card_img_url: card_img_url,
-					// textContent_3_url: document.getElementById("textContent_3_url").value || "",
-					// companyUnit: document.getElementById("companyUnit").value || "",
-					// share_card: document.getElementById("share_card").value || "",
-					// keep_card: document.getElementById("keep_card").value || "",
-					// cardDescription: document.getElementById("cardDescription").value || "",
-					// bgColor: document.getElementById("bgColor").value || "",
 				});
 			}
 
@@ -510,21 +471,14 @@
 				document.getElementById("textColor").textContent = data_card.textColor || "#081F58";
 				// 設定colorPicker調色盤顏色
 				colorPicker.setColor(data_card.textColor || "#081F58")
-
-				// document.getElementById("textContent_3_url").value = data_card.textContent_3_url || "";
-				// document.getElementById("companyUnit").value = data_card.companyUnit || "";
-				// document.getElementById("share_card").value = data_card.share_card || "";
-				// document.getElementById("keep_card").value = data_card.keep_card || "";
-				// document.getElementById("cardDescription").value = data_card.cardDescription || "";
-				// document.getElementById("bgColor").value = data_card.bgColor || "";
 			}
 
-			function close_flex() {
-				document.querySelector(".hidden_forward").classList.add("hidden");
+			function closeFlex() {
+				document.querySelector(".hiddenForward").classList.add("hidden");
 				document.querySelector(".hidden_backward").classList.remove("hidden");
 			}
 			function show_flex() {
-				document.querySelector(".hidden_forward").classList.remove("hidden");
+				document.querySelector(".hiddenForward").classList.remove("hidden");
 				document.querySelector(".hidden_backward").classList.add("hidden");
 
 				var mainTitle_1_Element = document.getElementById("mainTitle_1");
@@ -557,235 +511,222 @@
 				var textColor_Element = document.getElementById("textColor");
 				textColor = textColor_Element.textContent;
 
-				// var textContent_3_url_Element = document.getElementById("textContent_3_url");
-				// textContent_3_url = textContent_3_url_Element.value || textContent_3_url_Element.placeholder;
+				flexJson = [{
+					type: "bubble",
+					hero: {
+						type: "image",
+						url: textContent_1_url,
+						size: "full",
+						aspectRatio: "1:1",
+						aspectMode: "cover",
+						action: {
+							type: "uri",
+							uri: textContent_2_url,
+						},
+					},
+					body: {
+						type: "box",
+						layout: "vertical",
+						position: "relative",
+						height: "355px",
+						contents: [
+							{
+								type: "box",
+								layout: "vertical",
+								backgroundColor: textColor,
+								cornerRadius: "5px",
+								contents: [
+									{
+										type: "text",
+										text: "【" + mainTitle_1 + "】",
+										weight: "bold",
+										size: "xl",
+										color: "#FFFFFFFF",
+										align: "center",
+										gravity: "center",
+										contents: [],
+									},
+								],
+							},
+							{
+								type: "box",
+								layout: "horizontal",
+								offsetTop: "5px",
+								height: "45px",
+								contents: [
+									{
+										type: "text",
+										text: subTitle_1,
+										weight: "bold",
+										size: "xl",
+										color: textColor,
+										flex: 4,
+										gravity: "center",
+										contents: [],
+									},
+									{
+										type: "text",
+										text: subTitle_2,
+										weight: "bold",
+										color: textColor,
+										flex: 8,
+										gravity: "center",
+										contents: [],
+									},
+								],
+							},
+							{
+								type: "text",
+								text: mainTitle_2,
+								weight: "regular",
+								color: textColor,
+								contents: [],
+							},
+							{
+								type: "text",
+								text: "時間:" + textContent_1,
+								weight: "regular",
+								color: textColor,
+								contents: [],
+							},
+							{
+								type: "text",
+								text: "地點:" + textContent_2,
+								weight: "regular",
+								color: textColor,
+								contents: [],
+							},
+							{
+								type: "text",
+								text: "(" + textContent_3 + ")",
+								weight: "regular",
+								size: "sm",
+								color: textColor,
+								contents: [],
+							},
+							{
+								type: "box",
+								layout: "horizontal",
+								position: "absolute",
+								offsetTop: "200px",
+								offsetStart: "10px",
+								width: "320px",
+								contents: [
+									{
+										type: "box",
+										layout: "vertical",
+										paddingTop: "10px",
+										width: "135px",
+										height: "40px",
+										backgroundColor: "#B5B8BD",
+										contents: [
+											{
+												type: "text",
+												text: "分享給好友",
+												color: "#FFFFFFFF",
+												align: "center",
+												action: {
+													type: "uri",
+													uri: "https://liff.line.me/1660908511-Ol7grGPY/?userId=" + encodeURIComponent(userId),
+												},
+												contents: [],
+											},
+										],
+									},
+									{
+										type: "box",
+										layout: "vertical",
+										offsetStart: "10px",
+										paddingTop: "10px",
+										width: "135px",
+										height: "40px",
+										backgroundColor: "#B5B8BD",
+										contents: [
+											{
+												type: "text",
+												text: "收藏資訊",
+												color: "#FFFFFFFF",
+												align: "center",
+												contents: [],
+											},
+										],
+									},
+								],
+							},
+							{
+								type: "box",
+								layout: "vertical",
+								action: {
+									type: "uri",
+									// "uri": "https://3428750.so-buy.com/"
+									uri: "https://calendar.google.com/calendar/u/0/r/eventedit?pli=1&uid=62890calndrlink&sf=1&output=xml&dates=20230603T095000/20230603T120000&ctz=Asia/Taipei&text=【磊山+人文講堂】&details=【公益可以不一樣+成為改變的起點】",
+								},
+								position: "absolute",
+								offsetTop: "250px",
+								offsetStart: "10px",
+								paddingTop: "10px",
+								width: "280px",
+								height: "40px",
+								backgroundColor: "#91AFC2",
+								contents: [
+									{
+										type: "text",
+										text: "設定提醒(google行事曆)",
+										color: "#FFFFFFFF",
+										align: "center",
+										contents: [],
+									},
+								],
+							},
+							{
+								type: "box",
+								layout: "vertical",
+								action: {
+									type: "uri",
+									uri: "https://3428750.so-buy.com/",
+								},
+								position: "absolute",
+								offsetTop: "300px",
+								offsetStart: "10px",
+								paddingTop: "10px",
+								width: "280px",
+								height: "40px",
+								backgroundColor: "#91AFC2",
+								contents: [
+									{
+										type: "text",
+										text: "製作美美的卡片✨",
+										color: "#FFFFFFFF",
+										align: "center",
+										contents: [],
+									},
+								],
+							},
+						],
+					},
+				}];
 
-				// var companyUnit_Element = document.getElementById("companyUnit");
-				// companyUnit = companyUnit_Element.value || companyUnit_Element.placeholder;
+				// 找出已被選擇的宣傳卡片id
+				var selectedElements = document.querySelectorAll(".card.promotionalCard.selected [id^='flex2htmlPromotional']");
+				selectedElements.forEach(function (tempElement) {
+					var selectedElementsIdNumer = parseInt(tempElement.id.replace("flex2htmlPromotional", ""));
+					flexJson.push(JSON.parse(cardJsonPromotional[selectedElementsIdNumer]))
+				});
+				// 將flexJson繪出到HTML上
+				my_flexToHtml("flex2html_main", flexJson);
+			}
 
-				// var share_card_Element = document.getElementById("share_card");
-				// share_card = share_card_Element.value || share_card_Element.placeholder;
-
-				// var keep_card_Element = document.getElementById("keep_card");
-				// keep_card = keep_card_Element.value || keep_card_Element.placeholder;
-
-				// var cardDescription_Element = document.getElementById("cardDescription");
-				// cardDescription = cardDescription_Element.value || cardDescription_Element.placeholder;
-
-				// var bgColor_Element = document.getElementById("bgColor");
-				// bgColor = bgColor_Element.value || bgColor_Element.placeholder;
-
-				flexJson = {
+			function my_flexToHtml(flex2htmlElementName, flexJson) {
+				flexJsonMessage = {
 					type: "flex",
 					altText: "Flex Message",
 					contents: {
 						type: "carousel",
-						contents: [
-							{
-								type: "bubble",
-								hero: {
-									type: "image",
-									url: textContent_1_url,
-									size: "full",
-									aspectRatio: "1:1",
-									aspectMode: "cover",
-									action: {
-										type: "uri",
-										uri: textContent_2_url,
-									},
-								},
-								body: {
-									type: "box",
-									layout: "vertical",
-									position: "relative",
-									height: "355px",
-									contents: [
-										{
-											type: "box",
-											layout: "vertical",
-											backgroundColor: textColor,
-											cornerRadius: "5px",
-											contents: [
-												{
-													type: "text",
-													text: "【" + mainTitle_1 + "】",
-													weight: "bold",
-													size: "xl",
-													color: "#FFFFFFFF",
-													align: "center",
-													gravity: "center",
-													contents: [],
-												},
-											],
-										},
-										{
-											type: "box",
-											layout: "horizontal",
-											offsetTop: "5px",
-											height: "45px",
-											contents: [
-												{
-													type: "text",
-													text: subTitle_1,
-													weight: "bold",
-													size: "xl",
-													color: textColor,
-													flex: 4,
-													gravity: "center",
-													contents: [],
-												},
-												{
-													type: "text",
-													text: subTitle_2,
-													weight: "bold",
-													color: textColor,
-													flex: 8,
-													gravity: "center",
-													contents: [],
-												},
-											],
-										},
-										{
-											type: "text",
-											text: mainTitle_2,
-											weight: "regular",
-											color: textColor,
-											contents: [],
-										},
-										{
-											type: "text",
-											text: "時間:" + textContent_1,
-											weight: "regular",
-											color: textColor,
-											contents: [],
-										},
-										{
-											type: "text",
-											text: "地點:" + textContent_2,
-											weight: "regular",
-											color: textColor,
-											contents: [],
-										},
-										{
-											type: "text",
-											text: "(" + textContent_3 + ")",
-											weight: "regular",
-											size: "sm",
-											color: textColor,
-											contents: [],
-										},
-										{
-											type: "box",
-											layout: "horizontal",
-											position: "absolute",
-											offsetTop: "200px",
-											offsetStart: "10px",
-											width: "320px",
-											contents: [
-												{
-													type: "box",
-													layout: "vertical",
-													paddingTop: "10px",
-													width: "135px",
-													height: "40px",
-													backgroundColor: "#B5B8BD",
-													contents: [
-														{
-															type: "text",
-															text: "分享給好友",
-															color: "#FFFFFFFF",
-															align: "center",
-															action: {
-																type: "uri",
-																uri: "https://liff.line.me/1660908511-Ol7grGPY/?userId=" + encodeURIComponent(userId),
-															},
-															contents: [],
-														},
-													],
-												},
-												{
-													type: "box",
-													layout: "vertical",
-													offsetStart: "10px",
-													paddingTop: "10px",
-													width: "135px",
-													height: "40px",
-													backgroundColor: "#B5B8BD",
-													contents: [
-														{
-															type: "text",
-															text: "收藏資訊",
-															color: "#FFFFFFFF",
-															align: "center",
-															contents: [],
-														},
-													],
-												},
-											],
-										},
-										{
-											type: "box",
-											layout: "vertical",
-											action: {
-												type: "uri",
-												// "uri": "https://3428750.so-buy.com/"
-												uri: "https://calendar.google.com/calendar/u/0/r/eventedit?pli=1&uid=62890calndrlink&sf=1&output=xml&dates=20230603T095000/20230603T120000&ctz=Asia/Taipei&text=【磊山+人文講堂】&details=【公益可以不一樣+成為改變的起點】",
-											},
-											position: "absolute",
-											offsetTop: "250px",
-											offsetStart: "10px",
-											paddingTop: "10px",
-											width: "280px",
-											height: "40px",
-											backgroundColor: "#91AFC2",
-											contents: [
-												{
-													type: "text",
-													text: "設定提醒(google行事曆)",
-													color: "#FFFFFFFF",
-													align: "center",
-													contents: [],
-												},
-											],
-										},
-										{
-											type: "box",
-											layout: "vertical",
-											action: {
-												type: "uri",
-												uri: "https://3428750.so-buy.com/",
-											},
-											position: "absolute",
-											offsetTop: "300px",
-											offsetStart: "10px",
-											paddingTop: "10px",
-											width: "280px",
-											height: "40px",
-											backgroundColor: "#91AFC2",
-											contents: [
-												{
-													type: "text",
-													text: "製作美美的卡片✨",
-													color: "#FFFFFFFF",
-													align: "center",
-													contents: [],
-												},
-											],
-										},
-									],
-								},
-							},
-						],
-					},
-				};
-
-				// 將flexJson繪出到HTML上
-				my_flexToHtml("flex2html_main");
-			}
-
-			function my_flexToHtml(flex2html_Element_Name) {
-				document.getElementById(flex2html_Element_Name).innerHTML = "";
-				flex2html(flex2html_Element_Name, flexJson);
+						contents: [...flexJson]
+					}
+				}
+				document.getElementById(flex2htmlElementName).innerHTML = "";
+				flex2html(flex2htmlElementName, flexJsonMessage);
 
 				// 将錯誤的 ExXxs 替換為正確的 ExXXs
 				var wrongExXxsElements = document.querySelectorAll(".ExXxs");
@@ -821,7 +762,7 @@
 					return;
 				}
 
-				const url = "https://script.google.com/macros/s/AKfycbxKiM76YZI-m_mQUDrmIG7vq9PXI2UP5AQpTPljq61KWh-URhW_bIcKFWKZoeFMRx9Dog/exec";
+				const url = "https://script.google.com/macros/s/AKfycbxh3vJQxfYdXZIot89X63EoWAqw2NN8xh3v1n9uxQvgV2rYimF0U2o9ik5zqiUxWEPlMQ/exec";
 
 				try {
 					const sendData = { status: status, userId: userId, card: data_card };
@@ -834,7 +775,7 @@
 
 					console.log("Data sent:", sendData);
 					console.log("Response:", responseData);
-					if (responseData.status === 'first') { return "first"; }
+					if (responseData.status === 'first') { return responseData; }
 					else if (responseData.status === 'ok') { return responseData; }
 					else { alert("向google apps script寄送請求時\n回傳值非ok"); }
 				} catch (error) {
@@ -869,35 +810,49 @@
 			});
 
 			window.onload = function () {
-				document.querySelector(".hidden_forward").classList.add("hidden");
-				// document.getElementById('loader').style.display = 'flex';
-				// liff.init({ liffId: "1660908511-DERZWN3m" })
-				// 	.then(() => {
-				// 		if (!liff.isLoggedIn()) {
-				// 			liff.login();
-				// 		}
-				// 		else {
-				// 			liff.getProfile()
-				// 				.then(async function (profile) {
-				// 					userId = profile.userId
-				// 					var responseData = await sendRequest("get", userId)
-				// 					if (responseData != "first") {
-				// 						const data_card = JSON.parse(responseData.card);
-				// 						writeShowCardData(data_card)
-				// 					}
-				// 					document.getElementById('loader').style.display = 'none';
-				// 				})
-				// 				.catch(function (error) {
-				// 					alert("取得使用者資料錯誤\n" + error);
-				// 				});
-				// 		}
-				// 	});
+				document.querySelector(".hiddenForward").classList.add("hidden");
+				document.getElementById('loader').style.display = 'flex';
+				liff.init({ liffId: "1660908511-DERZWN3m" })
+					.then(() => {
+						if (!liff.isLoggedIn()) {
+							liff.login();
+						}
+						else {
+							liff.getProfile()
+								.then(async function () {
+									userId = profile.userId
+									var responseData = await sendRequest("get", userId)
+									if (responseData.status != "first") {
+										const data_card = JSON.parse(responseData.card);
+										writeShowCardData(data_card)
+									}
+
+									cardJsonPromotional = responseData.cardJsonPromotional
+									for (var i = 0; i < cardJsonPromotional.length; i++) {
+										var tempHtml = `
+												<div class="card promotionalCard" onclick="selectPromotionalCard(this)">
+													<div class="chatbox" style="pointer-events: none;">
+														<div id="flex2htmlPromotional${i}"></div>
+													</div>
+												</div>`;
+
+										// 把卡片元素 html 加寫入到 slider
+										document.getElementById("slider").innerHTML += tempHtml;
+										my_flexToHtml("flex2htmlPromotional" + i, [JSON.parse(cardJsonPromotional[i])])
+									}
+									document.getElementById('loader').style.display = 'none';
+								})
+								.catch(function (error) {
+									alert("取得使用者資料錯誤\n" + error);
+								});
+						}
+					});
 			};
 
 			// 分享line按钮的點擊事件
-			function shareButton_line() {
+			function shareButtonLine() {
 				liff
-					.shareTargetPicker([flexJson])
+					.shareTargetPicker([flexJsonMessage])
 					.then(async function (res) {
 						if (res) {
 							// 向google sheet發送的增加閱讀數
@@ -994,19 +949,19 @@
 					await navigator.clipboard.writeText(textToCopy);
 				} catch (err) {
 					try {
-						// 建立一個臨時的 textarea 元素
-						var tempTextarea = document.createElement("textarea");
-						tempTextarea.value = textToCopy;
+						// 建立一個臨時的 tempElement 元素
+						var tempElement = document.createElement("textarea");
+						tempElement.value = textToCopy;
 
 						// 將 textarea 加入到文件中
-						document.body.appendChild(tempTextarea);
+						document.body.appendChild(tempElement);
 
 						// 選取並複製文字
-						tempTextarea.select();
+						tempElement.select();
 						document.execCommand("copy");
 
 						// 移除臨時的 textarea 元素
-						tempTextarea.remove();
+						tempElement.remove();
 					} catch (err) {
 						alert("無法複製文字")
 						return;
@@ -1061,287 +1016,15 @@
 				}
 			}
 
-			// 跳出promotional_card視窗彈跳
-			function show_promotional_card() {
+			// 跳出 promotional card 視窗彈跳
+			function showPromotionalCard() {
 				document.getElementById("loadPromotionalCard").style.display = "flex";
-				flexJson = {
-					type: "flex",
-					altText: "Flex Message",
-					contents: {
-						type: "carousel",
-						contents: [{
-							"type": "bubble",
-							"size": "mega",
-							"direction": "ltr",
-							"hero": {
-								"type": "box",
-								"layout": "vertical",
-								"contents": [
-									{
-										"type": "box",
-										"layout": "horizontal",
-										"contents": [
-											{
-												"url": "https://3428750.so-buy.com/_files/50/3428750/23/06/862f45dba9dfa742.png",
-												"flex": 1,
-												"size": "full",
-												"type": "image",
-												"action": {
-													"type": "uri",
-													"label": "action",
-													"uri": "https://line.me/R/home/public/post?id=665xzprl&postId=1168603399615311352"
-												},
-												"gravity": "center",
-												"aspectMode": "cover",
-												"aspectRatio": "1:1"
-											}
-										]
-									}
-								],
-								"paddingAll": "0px"
-							},
-							"body": {
-								"type": "box",
-								"layout": "vertical",
-								"contents": [
-									{
-										"type": "box",
-										"layout": "horizontal",
-										"spacing": "none",
-										"contents": [
-											{
-												"size": "lg",
-												"text": "【磊山 人文講堂】",
-												"type": "text",
-												"align": "center",
-												"color": "#ffffff",
-												"style": "normal",
-												"weight": "bold",
-												"position": "relative"
-											}
-										],
-										"position": "relative",
-										"paddingTop": "3px",
-										"cornerRadius": "sm",
-										"paddingBottom": "3px",
-										"backgroundColor": "#38455F"
-									},
-									{
-										"type": "box",
-										"layout": "vertical",
-										"margin": "10px",
-										"contents": [
-											{
-												"type": "box",
-												"layout": "horizontal",
-												"spacing": "sm",
-												"contents": [
-													{
-														"flex": 1,
-														"size": "xl",
-														"text": "楊錦聰",
-														"type": "text",
-														"wrap": true,
-														"color": "#38455F",
-														"weight": "bold",
-														"contents": []
-													},
-													{
-														"flex": 2,
-														"size": "sm",
-														"text": "風潮音樂創辦人",
-														"type": "text",
-														"align": "start",
-														"color": "#38455F",
-														"gravity": "center"
-													}
-												]
-											},
-											{
-												"type": "box",
-												"layout": "horizontal",
-												"margin": "sm",
-												"spacing": "xs",
-												"contents": [
-													{
-														"size": "md",
-														"text": "日期:07/08(六)",
-														"type": "text",
-														"color": "#38455F",
-														"action": {
-															"uri": "mailto:xx@example.com",
-															"type": "uri",
-															"label": "action"
-														},
-														"margin": "none",
-														"weight": "regular"
-													}
-												],
-												"justifyContent": "center"
-											},
-											{
-												"type": "box",
-												"layout": "horizontal",
-												"margin": "xs",
-												"contents": [
-													{
-														"size": "md",
-														"text": "時間:09:50~12:00",
-														"type": "text",
-														"color": "#38455F",
-														"action": {
-															"uri": "tel:0922000000",
-															"type": "uri",
-															"label": "action"
-														},
-														"gravity": "center"
-													}
-												],
-												"justifyContent": "center"
-											},
-											{
-												"type": "box",
-												"layout": "vertical",
-												"margin": "xs",
-												"contents": [
-													{
-														"size": "sm",
-														"text": "地點:磊山學院101教室 (台北市中山區南京東路二段178號10樓)",
-														"type": "text",
-														"wrap": true,
-														"color": "#38455F",
-														"action": {
-															"uri": "https://lihi3.cc/0MnY5",
-															"type": "uri",
-															"label": "action"
-														},
-														"gravity": "center"
-													}
-												],
-												"justifyContent": "center"
-											}
-										]
-									}
-								],
-								"paddingAll": "20px"
-							},
-							"footer": {
-								"type": "box",
-								"layout": "vertical",
-								"contents": [
-									{
-										"type": "box",
-										"height": "40px",
-										"layout": "horizontal",
-										"margin": "none",
-										"spacing": "none",
-										"contents": [
-											{
-												"type": "box",
-												"layout": "horizontal",
-												"contents": [
-													{
-														"type": "button",
-														"color": "#fffffF",
-														"style": "link",
-														"action": {
-															"uri": "https://www",
-															"type": "uri",
-															"label": "分享給好友"
-														},
-														"gravity": "center"
-													}
-												],
-												"alignItems": "center",
-												"justifyContent": "center",
-												"backgroundColor": "#A3ABB6"
-											},
-											{
-												"type": "separator",
-												"color": "#ffffff",
-												"margin": "10px"
-											},
-											{
-												"type": "box",
-												"layout": "horizontal",
-												"contents": [
-													{
-														"type": "button",
-														"color": "#fffffF",
-														"style": "link",
-														"action": {
-															"uri": "https://lihi3.cc/iNKGu",
-															"type": "uri",
-															"label": "呈璽官LINE"
-														},
-														"gravity": "center"
-													}
-												],
-												"alignItems": "center",
-												"cornerRadius": "none",
-												"justifyContent": "center",
-												"backgroundColor": "#A3ABB6"
-											}
-										],
-										"offsetBottom": "none",
-										"paddingBottom": "none"
-									},
-									{
-										"type": "box",
-										"height": "40px",
-										"layout": "horizontal",
-										"margin": "10px",
-										"contents": [
-											{
-												"type": "button",
-												"color": "#ffffff",
-												"action": {
-													"uri": "https://lihi3.cc/uU8Q5",
-													"type": "uri",
-													"label": "設立提醒(google行事曆)"
-												},
-												"gravity": "center"
-											}
-										],
-										"alignItems": "center",
-										"justifyContent": "center",
-										"backgroundColor": "#85A4B8"
-									},
-									{
-										"type": "box",
-										"height": "40px",
-										"layout": "horizontal",
-										"margin": "10px",
-										"contents": [
-											{
-												"type": "button",
-												"color": "#ffffff",
-												"action": {
-													"uri": "https://3428750.so-buy.com/",
-													"type": "uri",
-													"label": "✨製作美美的卡片✨"
-												},
-												"gravity": "center"
-											}
-										],
-										"alignItems": "center",
-										"justifyContent": "center",
-										"backgroundColor": "#86B8B1"
-									}
-								]
-							}
-						}]
-					}
-				}
-				my_flexToHtml("flex2html_promotional_1")
-				my_flexToHtml("flex2html_promotional_2")
 			}
-
-			// 處理加入宣傳卡片事件
-			function close_promotional_card() {
+			// RENAME：處理宣傳卡片事件
+			function closePromotionalCard() {
 				document.getElementById("loadPromotionalCard").style.display = "none";
 			}
-
+			// RENAME：處理宣傳卡片事件
 			function selectPromotionalCard(element) {
 				element.classList.toggle("selected");
 			}
