@@ -819,7 +819,7 @@
 						}
 						else {
 							liff.getProfile()
-								.then(async function () {
+								.then(async function (profile) {
 									userId = profile.userId
 									var responseData = await sendRequest("get", userId)
 									if (responseData.status != "first") {
