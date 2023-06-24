@@ -7,7 +7,7 @@ for (var i = 0; i < 60; i++) {
       document.getElementsByClassName("post-tags")[0].innerHTML = '<div><span></span><span class="tag"></span></div><div><a href="javascript:window.history.back();">back</a><span> . </span><a href="/">home</a></div>'
     } catch (e) { }
     try {
-      document.getElementsByClassName("link-item")[1].innerHTML = '<i class="iconfont fab fa-line"></i>'
+      document.querySelector('.link-item[title="Line"]').innerHTML = '<i class="iconfont fab fa-line"></i>'
       Type(["|"])
     } catch (e) { }
     try {
