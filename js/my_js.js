@@ -1,58 +1,84 @@
-for (var i = 0; i < 60; i++) {
-  setTimeout(function () {
-    try {
-      document.getElementsByClassName("post-time")[0].innerHTML = document.getElementsByClassName("post-time")[0].innerText.replace("00:00:00", "")
-    } catch (e) { }
-    try {
-      document.getElementsByClassName("post-tags")[0].innerHTML = '<div><span></span><span class="tag"></span></div><div><a href="javascript:window.history.back();">back</a><span> . </span><a href="/">home</a></div>'
-    } catch (e) { }
-    try {
-      document.querySelector('.link-item[title="Line"]').innerHTML = '<i class="iconfont fab fa-line"></i>'
-      Type(["|"])
-    } catch (e) { }
-    try {
-      document.getElementsByClassName("copyright")[0].innerHTML = '<span>© Albert Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & Theme by <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>'
-    } catch (e) { }
-    try {
-      document.getElementsByClassName("tocbot-toc-expand")[0].innerHTML = ''
-    } catch (e) { }
-    try {
-      if (location.pathname.includes("/tags/Posts/") || location.pathname.includes("/tags/LeetCode/")) {
-        document.getElementsByClassName("post-wrap tags")[0].innerHTML = ''
-      }
-    } catch (e) { }
-    try {
-      if (document.documentElement.clientWidth > 1000) {
-        // 非主頁的漂浮點點
-        var myElement = document.querySelector('#canvas-nest');
-        if (!myElement && location.pathname != "/") {
-          var scriptEl = document.createElement('script');
-          scriptEl.src = '/js/canvas-nest.js';
-          scriptEl.id = 'canvas-nest';
-          document.body.appendChild(scriptEl);
-        }
-        // 主頁的頁面背景圖
-        else {
-          main = document.getElementsByClassName("main")[0]
-          main.style.backgroundImage = "url('/image/white.png')";
-          main.style.backgroundSize = "cover";
-          main.style.backgroundPosition = "center";
-          main.style.transition = "background-image 1s ease-in-out";
-        }
-      }
-    } catch (e) { }
-  }, i * 10);
-}
+document.addEventListener('DOMContentLoaded', function () {
+  try {
+    // 檢查localStorage是否有標記
+    var isFirstVisit = localStorage.getItem('isFirstVisit');
+    if (isFirstVisit !== null) {
+      document.getElementsByClassName("toggleBtn")[0].style.zIndex = 9999;
 
-setTimeout(function () {
-  // 主頁的打字效果
-  Type(["跌倒，是成長的保障，是學習的寶藏。", "Mistakes are stepping stones to success.", "Eat, Sleep, Code, Repeat."])
-  // 主頁的頁面背景圖
-  if (document.documentElement.clientWidth > 1000) {
-    if (location.pathname == "/") { startSlideshow(6000); }
+      var arrowIcon = document.createElement('i');
+      arrowIcon.className = 'fas fa-arrow-right arrow-icon';
+      arrowIcon.id = 'arrow';
+      arrowIcon.style.fontSize = '10vw';
+      arrowIcon.style.color = '#ffffff';
+      arrowIcon.style.top = '30px';
+      arrowIcon.style.right = '5vw';
+      arrowIcon.style.position = 'absolute';
+      arrowIcon.style.zIndex = '9999';
+      arrowIcon.style.transform = 'rotate(315deg)';
+      document.body.appendChild(arrowIcon);
+      Swal.fire({
+        title: '切換黑白頁面<br>讓您舒服閱讀',
+        showCancelButton: false,
+        showConfirmButton: false,
+        icon: 'info',
+      }).then((result) => {
+        document.getElementById("arrow").style.display = "none";
+      })
+    };
+    // 在localStorage中設置標記，以便下次檢查
+    localStorage.setItem('isFirstVisit', 'false');
   }
-}, 1000);
-
+  catch (e) { }
+  try {
+    setTimeout(function () {
+      document.querySelector('.wrapper').style.display = 'flex';
+    }, 200);
+  } catch (e) { }
+  try {
+    document.getElementsByClassName("post-time")[0].innerHTML = document.getElementsByClassName("post-time")[0].innerText.replace("00:00:00", "")
+  } catch (e) { }
+  try {
+    document.getElementsByClassName("post-tags")[0].innerHTML = '<div><span></span><span class="tag"></span></div><div><a href="javascript:window.history.back();">back</a><span> . </span><a href="/">home</a></div>'
+  } catch (e) { }
+  try {
+    document.querySelector('.link-item[title="Line"]').innerHTML = '<i class="iconfont fab fa-line"></i>'
+    // 主頁的打字效果
+    Type(["跌倒，是成長的保障，是學習的寶藏。", "Mistakes are stepping stones to success.", "Eat, Sleep, Code, Repeat."])
+    // 主頁的頁面背景圖
+    if (document.documentElement.clientWidth > 1000) {
+      if (location.pathname == "/") { startSlideshow(5000); }
+    }
+  } catch (e) { }
+  try {
+    document.getElementsByClassName("copyright")[0].innerHTML = '<span>© Albert Wang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & Theme by <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>'
+  } catch (e) { }
+  try {
+    document.getElementsByClassName("tocbot-toc-expand")[0].innerHTML = ''
+  } catch (e) { }
+  try {
+    document.getElementsByClassName("post-wrap tags")[0].innerHTML = ''
+  } catch (e) { }
+  try {
+    if (document.documentElement.clientWidth > 1000) {
+      // 非主頁的漂浮點點
+      var myElement = document.querySelector('#canvas-nest');
+      if (!myElement && location.pathname != "/") {
+        var scriptEl = document.createElement('script');
+        scriptEl.src = '/js/canvas-nest.js';
+        scriptEl.id = 'canvas-nest';
+        document.body.appendChild(scriptEl);
+      }
+      // 主頁的頁面背景圖
+      else {
+        main = document.getElementsByClassName("main")[0]
+        main.style.backgroundImage = "url('/image/white.png')";
+        main.style.backgroundSize = "cover";
+        main.style.backgroundPosition = "center";
+        main.style.transition = "background-image 1s ease-in-out";
+      }
+    }
+  } catch (e) { }
+})
 
 function startSlideshow(nextImageTime) {
   var images_white = ['/image/white.png', '/image/image1.jpg', '/image/image2.jpg', '/image/image3.jpg', '/image/image5.jpg', '/image/image6.jpg'];
@@ -108,7 +134,6 @@ function startSlideshow(nextImageTime) {
     })
     start();
   });
-
 }
 
 function Type(str_list) {

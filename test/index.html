@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            /* 其他頁面內容的樣式 */
+        }
+
+<pre><code>    .overlay &#123;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色背景 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999; /* 確保它在頁面內容之上 */
+        display: none; /* 初始隱藏 */
+    &#125;
+
+    .overlay-content &#123;
+        text-align: center;
+        color: white;
+        padding: 20px;
+        background-color: #333;
+        border-radius: 8px;
+    &#125;
+
+    .overlay-content button &#123;
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    &#125;
+&lt;/style&gt;
+&lt;script defer&gt;
+    document.addEventListener(&#39;DOMContentLoaded&#39;, function() &#123;
+        var isFirstVisit = localStorage.getItem(&#39;isFirstVisit&#39;);
+
+        if (isFirstVisit === null) &#123;
+            // 顯示覆蓋當第一次訪問
+            document.getElementById(&#39;overlay&#39;).style.display = &#39;flex&#39;;
+
+            // 在 localStorage 中設置標記以指示不再是第一次訪問
+            localStorage.setItem(&#39;isFirstVisit&#39;, &#39;false&#39;);
+        &#125;
+    &#125;);
+
+    function dismissOverlay() &#123;
+        // 當使用者點擊 &quot;Got it!&quot; 按鈕時，隱藏覆蓋
+        document.getElementById(&#39;overlay&#39;).style.display = &#39;none&#39;;
+    &#125;
+&lt;/script&gt;
+</code></pre>
+</head>
+<body>
+    <!-- 您的頁面內容放在這裡 -->
+
+<pre><code>&lt;!-- 第一次進入時的覆蓋 --&gt;
+&lt;div class=&quot;overlay&quot; id=&quot;overlay&quot;&gt;
+    &lt;div class=&quot;overlay-content&quot;&gt;
+        &lt;p&gt;歡迎來到我們的網站！&lt;/p&gt;
+        &lt;p&gt;點擊右上角的按鈕來探索。&lt;/p&gt;
+        &lt;button onclick=&quot;dismissOverlay()&quot;&gt;知道了！&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+</body>
+</html>
