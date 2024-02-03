@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
   try {
     // 檢查localStorage是否有標記
     var isFirstVisit = localStorage.getItem('isFirstVisit');
-    if (isFirstVisit !== null) {
+    if (isFirstVisit === null) {
       document.getElementsByClassName("toggleBtn")[0].style.zIndex = 9999;
 
       var arrowIcon = document.createElement('i');
