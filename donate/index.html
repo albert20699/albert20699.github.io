@@ -139,36 +139,162 @@
         
         <section class="post-content">
             <style>
-  .donation-container {
-    text-align: center;
-    margin-top: 20px;
-  }
+    .donation {
+        display: inline-flex;
+        align-items: stretch;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
 
-  .donation {
-    display: inline-block;
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
+    .donation-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: space-between;
+        justify-content: center;
+        margin: 10px;
+        padding: 0 20px 30px 20px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        width: 220px;
+    }
+
+    .donation h2 {
+        text-align: center;
+        padding-top: 0em;
+        padding-bottom: 0em;
+    }
+
+    .donation-button {
+        padding: 10px 20px;
+        font-weight: bold;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 5px;
+        color: #fff;
+        background-color: #3498db;
+        height: 28px;
+        width: -webkit-fill-available;
+    }
+
+    .donation-button.dark-theme {
+        color: #000;
+        background-color: #fff;
+    }
+
+
+    .unordered-list-main {
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+
+    .unordered-list-item {
+        padding-left: 20px;
+    }
 </style>
 
-<div class="donation-container">
-  <div class="donation">
-    <h3>捐款方式 1</h3>
-    <p>這是有關捐款方式 1 的文字說明。</p>
-    <!-- 這裡放置捐款方式 1 的具體內容 -->
-  </div>
-
-  <div class="donation">
-    <h3>捐款方式 2</h3>
-    <p>這是有關捐款方式 2 的文字說明。</p>
-    <!-- 這裡放置捐款方式 2 的具體內容 -->
-  </div>
-
-  <!-- 可以添加更多的 .donation 區塊，根據你的需求 -->
+<div class="donation">
+    <div class="donation-container">
+        <h2>使用 LINE 贊助</h2>
+        <div style="margin-bottom: 10px;">
+            <div class="unordered-list-main">使用方式</div>
+            <div class="unordered-list-item">
+                <div>line pay</div>
+                <div>line bank</div>
+                <div>一卡通 money</div>
+            </div>
+            <div class="unordered-list-main">我有話要說~</div>
+            <div class="unordered-list-item">
+                <div>1. 最快速方便的方式</div>
+                <div>2. 不會被收任何手續費</div>
+                <div>3. 您能很快收到我的 謝謝~</div>
+            </div>
+        </div>
+        <div class="donation-button" onclick="window.location.href='https://line.me/ti/p/jmQ7NUoDUH'">我的 LINE</div>
+    </div>
+    <div class="donation-container">
+        <h2>使用 街口支付 贊助</h2>
+        <div style="margin-bottom: 10px;">
+            <div class="unordered-list-main">使用方式</div>
+            <div class="unordered-list-item">
+                <div>街口支付 轉帳功能</div>
+            </div>
+            <div class="unordered-list-main">我有話要說~</div>
+            <div class="unordered-list-item">
+                <div>1. 這個方式也不錯</div>
+                <div>2. 不會被收任何手續費</div>
+                <div>3. 記得贊助完 跟我說喔~</div>
+            </div>
+        </div>
+        <div class="donation-button" onclick="window.location.href='./JKOPay.html'">贊助</div>
+    </div>
+    <div class="donation-container">
+        <h2>使用 buymeacoffee 贊助</h2>
+        <div style="margin-bottom: 10px;">
+            <div class="unordered-list-main">使用方式</div>
+            <div class="unordered-list-item">
+                <div>Visa / MasterCard / JCB</div>
+                <div>信用卡</div>
+            </div>
+            <div class="unordered-list-main">我有話要說~</div>
+            <div class="unordered-list-item">
+                <div>1. 較麻煩的方式</div>
+                <div>2. 我會被收很多手續費</div>
+                <div>3. 每100元我只能拿到65元</div>
+                <div>4. 會使用美金扣款</div>
+            </div>
+        </div>
+        <div class="donation-button" onclick="window.location.href='./buymeacoffee.html'" style="margin-bottom: 10px;">教學</div>
+        <div class="donation-button" onclick="window.location.href='https://www.buymeacoffee.com/albert20699'">贊助</div>
+    </div>
+    <div class="donation-container">
+        <h2>使用 PayPal 贊助</h2>
+        <div style="margin-bottom: 10px;">
+            <div class="unordered-list-main">使用方式</div>
+            <div class="unordered-list-item">
+                <div>PayPal</div>
+                <div>PayPal.Me</div>
+            </div>
+            <div class="unordered-list-main">我有話要說~</div>
+            <div class="unordered-list-item">
+                <div>1. 專門給有PayPal帳號的人</div>
+                <div>2. 全球最大的第三方金融機構</div>
+                <div>3. 但大多數臺灣人都不認識</div>
+            </div>
+        </div>
+        <div class="donation-button"
+            onclick="window.location.href='https://paypal.me/LINETranslate?country.x=TW&locale.x=zh_TW'">贊助</div>
+    </div>
+    <div class="donation-container">
+        <h2>與我聯絡</h2>
+        <div class="donation-button" onclick="window.location.href='https://line.me/ti/p/jmQ7NUoDUH'">開發人員 LINE</div>
+        <img src="https://i.ibb.co/7gTs735/581450.jpg" alt="王証彥"
+            onclick="window.location.href='https://line.me/ti/p/jmQ7NUoDUH'" style="margin-top: 15px;">
+    </div>
 </div>
 
+<script>
+    var bodyElement = document.body;
+    var followElements = document.querySelectorAll('.donation-button');
+    // 創建一個 MutationObserver 實例，監視body元素上class屬性的變化
+    var observer = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+            // 當class變化時，更新followElement的class
+            followElements.forEach(function (element) {
+                element.className = bodyElement.className.includes('dark-theme') ? 'donation-button dark-theme' : 'donation-button';
+            });
+        });
+    });
+    // 配置 MutationObserver 監視的目標和選項
+    var config = { attributes: true, attributeFilter: ['class'] };
+    // 開始監視
+    observer.observe(bodyElement, config);
+
+
+    function handleDonationClick(donationNumber) {
+        // 在這裡處理捐款按鈕點擊事件，您可以添加自定義的捐款處理邏輯
+        alert('捐款按鈕 ' + donationNumber + ' 被點擊了！');
+    }
+</script>
         </section>
     </article>
 </div>
