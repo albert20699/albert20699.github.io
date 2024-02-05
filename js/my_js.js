@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
       Swal.fire({
         title: '切換黑白頁面<br>讓您舒服閱讀',
         showCancelButton: false,
-        showConfirmButton: false,
+        showConfirmButton: true,
         icon: 'info',
       }).then((result) => {
         document.getElementById("arrow").style.display = "none";
