@@ -3,19 +3,37 @@ document.addEventListener('DOMContentLoaded', function () {
     // 檢查localStorage是否有標記
     var isFirstVisit = localStorage.getItem('isFirstVisit');
     if (isFirstVisit === null) {
-      document.getElementsByClassName("toggleBtn")[0].style.zIndex = 9999;
-
+      // 創建一個指向箭頭，將會指向可以切換黑白頁面的按鈕
       var arrowIcon = document.createElement('i');
       arrowIcon.className = 'fas fa-arrow-right arrow-icon';
       arrowIcon.id = 'arrow';
-      arrowIcon.style.fontSize = '10vw';
-      arrowIcon.style.color = '#ffffff';
+      arrowIcon.style.fontSize = '100px';
+      arrowIcon.style.color = 'rgb(52 174 255)';
       arrowIcon.style.top = '30px';
-      arrowIcon.style.right = '5vw';
       arrowIcon.style.position = 'absolute';
       arrowIcon.style.zIndex = '9999';
-      arrowIcon.style.transform = 'rotate(315deg)';
       document.body.appendChild(arrowIcon);
+      // 依據視窗寬度追蹤 toggleBtn 或是 mobile-toggle-theme
+      function trackElementPosition() {
+        const tracker = document.getElementById("arrow");
+        if (window.innerWidth <= 478) {
+          const target = document.getElementById("mobile-toggle-theme");
+          document.getElementById("nav-mobile").style.zIndex = 9999;
+          const targetRect = target.getBoundingClientRect();
+          tracker.style.left = (targetRect.left + 25) + 'px';
+          tracker.style.transform = 'rotate(225deg)';
+        }
+        else {
+          const target = document.getElementsByClassName("toggleBtn")[0];
+          target.style.zIndex = 9999;
+          const targetRect = target.getBoundingClientRect();
+          tracker.style.left = (targetRect.left - 70) + 'px';
+          tracker.style.transform = 'rotate(315deg)';
+        }
+        requestAnimationFrame(trackElementPosition);
+      }
+      trackElementPosition();
+      // 彈跳出提醒 可以切換黑白頁面 的警示框
       Swal.fire({
         title: '切換黑白頁面<br>讓您舒服閱讀',
         showCancelButton: false,
