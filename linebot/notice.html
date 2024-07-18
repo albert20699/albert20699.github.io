@@ -142,116 +142,19 @@
     <article class="post-wrap page">
         
         <section class="post-content">
-            <style>
-    .donation {
-        display: inline-flex;
-        align-items: stretch;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        align-items: flex-start;
-        margin-top: 20px;
-    }
+            <br>
 
-    .donation-container {
-        display: flex;
-        flex-wrap: wrap;
-        align-content: space-between;
-        justify-content: center;
-        margin: 10px;
-        padding: 0 20px 30px 20px;
-        border: 2px solid #ccc;
-        border-radius: 5px;
-        width: 200px;
-    }
-
-    .donation h2 {
-        text-align: center;
-        padding-top: 0em;
-        padding-bottom: 0em;
-    }
-
-    .donation-button {
-        padding: 10px 20px;
-        font-weight: bold;
-        text-align: center;
-        cursor: pointer;
-        border-radius: 5px;
-        color: #fff;
-        background-color: #3498db;
-        height: 28px;
-        width: -webkit-fill-available;
-    }
-
-    .donation-button.dark-theme {
-        color: #000;
-        background-color: #fff;
-    }
+<h1 id="簡易比較表"><a href="#簡易比較表" class="headerlink" title="簡易比較表"></a>簡易比較表</h1><img src="/image/introduce.jpg" style="aspect-ratio: auto; width: 100%; max-width: 750px; margin: 0;">
 
 
-    .unordered-list-main {
-        font-weight: bold;
-        font-size: 1.1em;
-    }
+<h1 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h1><ol>
+<li>訂閱專屬機器人會受到平台限制翻譯使用量，若到達使用量，需要小額處理費用來幫您解決，再此向您告知。</li>
+<li>訂閱專屬機器人的翻譯速度，取決於機器人加入的群組數量及翻譯語言的數量，若有疑慮，記得將機器人踢出沒用翻譯之群組，或者有需求時詢問開發人員。</li>
+<li>由於是使用線上平台開發的，若是平台導致的問題，且真的無法解決時，會向您告知。</li>
+<li>若服務功能壞掉或有任何緊急問題，請馬上告訴開發人員，將會盡快處理。</li>
+<li>開發人員已有3年翻譯LINE機器人經驗，誠信與服務至上，若不滿意都歡迎反映，必要時依比例退費處理。</li>
+</ol>
 
-    .unordered-list-item {
-        padding-left: 20px;
-    }
-</style>
-
-<div class="donation">
-    <div class="donation-container">
-        <h2>詳細資料 & <br>注意事項</h2>
-        <div class="donation-button" onclick="window.location.href='./notice.html'">點我查看</div>
-    </div>
-    <div class="donation-container">
-        <h2>創立群組教學</h2>
-        <div class="donation-button" onclick="window.location.href='./createGroup.html'">點我查看</div>
-    </div>
-    <div class="donation-container">
-        <h2>邀請機器人教學</h2>
-        <div class="donation-button" onclick="window.location.href='./joinLineBot.html'">點我查看</div>
-    </div>
-    <div class="donation-container">
-        <h2>設定語言教學</h2>
-        <div class="donation-button" onclick="window.location.href='./setLanguage.html'">點我查看</div>
-    </div>
-    <div class="donation-container">
-        <h2>與我聯絡</h2>
-        <div class="donation-button" onclick="window.location.href='https://line.me/ti/p/jmQ7NUoDUH'">開發人員 LINE</div>
-        <img src="https://i.ibb.co/7gTs735/581450.jpg" alt="王証彥"
-            onclick="window.location.href='https://line.me/ti/p/jmQ7NUoDUH'" style="margin-top: 15px;">
-    </div>
-    <div class="donation-container">
-        <h2>LINE Bot 機器人</h2>
-        <div class="donation-button" onclick="window.location.href='https://line.me/R/ti/p/%40315ajptl'">點我加 LINE Bot</div>
-        <img src="https://raw.githubusercontent.com/albert20699/linebot/main/Translator/messageImage_1667489288623.jpg" alt="linebot"
-            onclick="window.location.href='https://line.me/R/ti/p/%40315ajptl'" style="margin-top: 15px;">
-    </div>
-</div>
-
-<script>
-    var bodyElement = document.body;
-    var followElements = document.querySelectorAll('.donation-button');
-    // 創建一個 MutationObserver 實例，監視body元素上class屬性的變化
-    var observer = new MutationObserver(function (mutations) {
-        mutations.forEach(function (mutation) {
-            // 當class變化時，更新followElement的class
-            followElements.forEach(function (element) {
-                element.className = bodyElement.className.includes('dark-theme') ? 'donation-button dark-theme' : 'donation-button';
-            });
-        });
-    });
-    // 配置 MutationObserver 監視的目標和選項
-    var config = { attributes: true, attributeFilter: ['class'] };
-    // 開始監視
-    observer.observe(bodyElement, config);
-
-
-    function handleDonationClick(donationNumber) {
-        // 在這裡處理捐款按鈕點擊事件，您可以添加自定義的捐款處理邏輯
-        alert('捐款按鈕 ' + donationNumber + ' 被點擊了！');
-    }
-</script>
         </section>
     </article>
 </div>
