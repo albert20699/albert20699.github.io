@@ -1,52 +1,30 @@
 document.addEventListener('DOMContentLoaded', function () {
   try {
-    // 檢查localStorage是否有標記
-    var isFirstVisit = localStorage.getItem('isFirstVisit');
-    if (isFirstVisit === null) {
-      // 創建一個指向箭頭，將會指向可以切換黑白頁面的按鈕
-      var arrowIcon = document.createElement('i');
-      arrowIcon.className = 'fas fa-arrow-right arrow-icon';
-      arrowIcon.id = 'arrow';
-      arrowIcon.style.fontSize = '100px';
-      arrowIcon.style.color = 'rgb(52 174 255)';
-      arrowIcon.style.top = '30px';
-      arrowIcon.style.position = 'absolute';
-      arrowIcon.style.zIndex = '9999';
-      document.body.appendChild(arrowIcon);
-      // 依據視窗寬度追蹤 toggleBtn 或是 mobile-toggle-theme
-      function trackElementPosition() {
-        const tracker = document.getElementById("arrow");
-        if (window.innerWidth <= 478) {
-          const target = document.getElementById("mobile-toggle-theme");
-          document.getElementById("nav-mobile").style.zIndex = 9999;
-          const targetRect = target.getBoundingClientRect();
-          tracker.style.left = (targetRect.left + 25) + 'px';
-          tracker.style.transform = 'rotate(225deg)';
-        }
-        else {
-          const target = document.getElementsByClassName("toggleBtn")[0];
-          target.style.zIndex = 9999;
-          const targetRect = target.getBoundingClientRect();
-          tracker.style.left = (targetRect.left - 70) + 'px';
-          tracker.style.transform = 'rotate(315deg)';
-        }
-        requestAnimationFrame(trackElementPosition);
-      }
-      trackElementPosition();
-      // 彈跳出提醒 可以切換黑白頁面 的警示框
+    // 檢查localStorage中是否有設定語言的變數
+    var preferredLanguage = localStorage.getItem('preferredLanguage');
+    if (preferredLanguage === null) {
+      // 如果沒有設定語言，彈跳視窗讓使用者選擇語言
       Swal.fire({
-        title: '切換黑白頁面<br>讓您舒服閱讀',
-        showCancelButton: false,
+        title: '選擇語言<br>Choose your language',
+        showCancelButton: true,
         showConfirmButton: true,
+        confirmButtonText: '中文',
+        cancelButtonText: 'English',
         icon: 'info',
+        allowOutsideClick: false, // 禁止點擊外部關閉彈窗
       }).then((result) => {
-        document.getElementById("arrow").style.display = "none";
-      })
-    };
-    // 在localStorage中設置標記，以便下次檢查
-    localStorage.setItem('isFirstVisit', 'false');
+        if (result.isConfirmed) {
+          localStorage.setItem('preferredLanguage', 'zh');
+          location.reload();
+        } else {
+          localStorage.setItem('preferredLanguage', 'en');
+          location.reload();
+        }
+      });
+    }
   }
   catch (e) { }
+
   try {
     setTimeout(function () {
       document.querySelector('.wrapper').style.display = 'flex';
