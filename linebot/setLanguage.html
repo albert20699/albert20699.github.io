@@ -144,6 +144,8 @@
         <section class="post-content">
             <br>
 
+<div id="chineseArea" style="display: none;">
+
 <h1 id="群組加入機器人成功"><a href="#群組加入機器人成功" class="headerlink" title="群組加入機器人成功"></a>群組加入機器人成功</h1><img src="/image/setLanguage1.png" style="aspect-ratio: auto; width: 100%; max-width: 500px; margin: 0;">
 
 <h1 id="點選什麼語言就會翻譯成什麼語言"><a href="#點選什麼語言就會翻譯成什麼語言" class="headerlink" title="點選什麼語言就會翻譯成什麼語言"></a>點選什麼語言就會翻譯成什麼語言</h1><img src="/image/setLanguage2.png" style="aspect-ratio: auto; width: 100%; max-width: 500px; margin: 0;">
@@ -151,6 +153,35 @@
 <h1 id="重製選擇語言"><a href="#重製選擇語言" class="headerlink" title="重製選擇語言"></a>重製選擇語言</h1><img src="/image/setLanguage3.png" style="aspect-ratio: auto; width: 100%; max-width: 500px; margin: 0;">
 
 <h1 id="忽略不翻譯"><a href="#忽略不翻譯" class="headerlink" title="忽略不翻譯"></a>忽略不翻譯</h1><img src="/image/setLanguage4.jpg" style="aspect-ratio: auto; width: 100%; max-width: 500px; margin: 0;">
+
+
+</div>
+
+
+<div id="englishArea" style="display: none;">
+
+<h1 id="Bot-Successfully-Added-to-Group"><a href="#Bot-Successfully-Added-to-Group" class="headerlink" title="Bot Successfully Added to Group"></a>Bot Successfully Added to Group</h1><img src="/image/setLanguage_en1.jpg" style="aspect-ratio: auto; width: 100%; max-width: 500px; margin: 0;">
+
+<h1 id="It-will-translate-into-the-language-you-select"><a href="#It-will-translate-into-the-language-you-select" class="headerlink" title="It will translate into the language you select"></a>It will translate into the language you select</h1><img src="/image/setLanguage_en2.jpg" style="aspect-ratio: auto; width: 100%; max-width: 500px; margin: 0;">
+
+
+</div>
+
+
+
+<script>
+    // 取得 preferredLanguage 值
+    var preferredLanguage = localStorage.getItem('preferredLanguage');
+    // 根據 preferredLanguage 顯示相應的區域
+    if (preferredLanguage === "zh") {
+        document.getElementById('chineseArea').style.removeProperty('display');
+    } else if (preferredLanguage === "en") {
+        document.getElementById('englishArea').style.removeProperty('display');
+    } else {
+        document.getElementById('chineseArea').style.removeProperty('display');
+        localStorage.removeItem('preferredLanguage');
+    }
+</script>
 
         </section>
     </article>

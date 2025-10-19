@@ -144,6 +144,9 @@
         <section class="post-content">
             <br>
 
+
+<div id="chineseArea" style="display: none;">
+
 <h1 id="加入機器人好友"><a href="#加入機器人好友" class="headerlink" title="加入機器人好友"></a>加入機器人好友</h1><img src="/image/createGroup1.png" style="aspect-ratio: auto; width: 100%; max-width: 500px; margin: 0;">
 
 <h1 id="創立群組"><a href="#創立群組" class="headerlink" title="創立群組"></a>創立群組</h1><img src="/image/createGroup2.png" style="aspect-ratio: auto; width: 100%; max-width: 500px; margin: 0;">
@@ -153,6 +156,39 @@
 <h1 id="加入機器人並建立"><a href="#加入機器人並建立" class="headerlink" title="加入機器人並建立"></a>加入機器人並建立</h1><img src="/image/createGroup4.png" style="aspect-ratio: auto; width: 100%; max-width: 500px; margin: 0;">
 
 <h1 id="建立群組完成"><a href="#建立群組完成" class="headerlink" title="建立群組完成"></a>建立群組完成</h1><img src="/image/createGroup5.jpg" style="aspect-ratio: auto; width: 100%; max-width: 500px; margin: 0;">
+
+</div>
+
+
+<div id="englishArea" style="display: none;">
+
+<h1 id="Add-Bot-as-Friend"><a href="#Add-Bot-as-Friend" class="headerlink" title="Add Bot as Friend"></a>Add Bot as Friend</h1><img src="/image/createGroup_en1.jpg" style="aspect-ratio: auto; width: 100%; max-width: 500px; margin: 0;">
+
+<h1 id="Create-a-Group"><a href="#Create-a-Group" class="headerlink" title="Create a Group"></a>Create a Group</h1><img src="/image/createGroup_en2.jpg" style="aspect-ratio: auto; width: 100%; max-width: 500px; margin: 0;">
+
+<h1 id="Select-Group"><a href="#Select-Group" class="headerlink" title="Select Group"></a>Select Group</h1><img src="/image/createGroup_en3.jpg" style="aspect-ratio: auto; width: 100%; max-width: 500px; margin: 0;">
+
+<h1 id="Add-Bot-and-Create-Group"><a href="#Add-Bot-and-Create-Group" class="headerlink" title="Add Bot and Create Group"></a>Add Bot and Create Group</h1><img src="/image/createGroup_en4.jpg" style="aspect-ratio: auto; width: 100%; max-width: 500px; margin: 0;">
+
+<h1 id="Group-Creation-Complete"><a href="#Group-Creation-Complete" class="headerlink" title="Group Creation Complete"></a>Group Creation Complete</h1><img src="/image/createGroup_en5.jpg" style="aspect-ratio: auto; width: 100%; max-width: 500px; margin: 0;">
+
+</div>
+
+
+<script>
+    // 取得 preferredLanguage 值
+    var preferredLanguage = localStorage.getItem('preferredLanguage');
+    // 根據 preferredLanguage 顯示相應的區域
+    if (preferredLanguage === "zh") {
+        document.getElementById('chineseArea').style.removeProperty('display');
+    } else if (preferredLanguage === "en") {
+        document.getElementById('englishArea').style.removeProperty('display');
+    } else {
+        document.getElementById('chineseArea').style.removeProperty('display');
+        localStorage.removeItem('preferredLanguage');
+    }
+</script>
+
         </section>
     </article>
 </div>

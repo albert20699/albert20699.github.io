@@ -198,36 +198,73 @@
     }
 </style>
 
-<div class="donation">
-    <div class="donation-container">
-        <h2>詳細資料 & <br>注意事項</h2>
-        <div class="donation-button" onclick="window.location.href='./notice.html'">點我查看</div>
-    </div>
-    <div class="donation-container">
-        <h2>操作 & <br>設定語言教學</h2>
-        <div class="donation-button" onclick="window.location.href='./setLanguage.html'">點我查看</div>
-    </div>
-    <div class="donation-container">
-        <h2>創立群組教學</h2>
-        <div class="donation-button" onclick="window.location.href='./createGroup.html'">點我查看</div>
-    </div>
-    <div class="donation-container">
-        <h2>邀請機器人教學</h2>
-        <div class="donation-button" onclick="window.location.href='./joinLineBot.html'">點我查看</div>
-    </div>
-    <div class="donation-container">
-        <h2>與我聯絡</h2>
-        <div class="donation-button" onclick="window.location.href='https://line.me/ti/p/jmQ7NUoDUH'">開發人員 LINE</div>
-        <img src="/image/line_me.jpg" alt="王証彥"
-            onclick="window.location.href='https://line.me/ti/p/jmQ7NUoDUH'" style="margin-top: 15px;">
-    </div>
-    <div class="donation-container">
-        <h2>LINE Bot 機器人</h2>
-        <div class="donation-button" onclick="window.location.href='https://line.me/R/ti/p/%40315ajptl'">點我加 LINE Bot</div>
-        <img src="https://raw.githubusercontent.com/albert20699/linebot/main/Translator/messageImage_1667489288623.jpg" alt="linebot"
-            onclick="window.location.href='https://line.me/R/ti/p/%40315ajptl'" style="margin-top: 15px;">
+<div id="chineseArea" style="display: none;">
+    <div class="donation">
+        <div class="donation-container">
+            <h2>詳細資料 & <br>注意事項</h2>
+            <div class="donation-button" onclick="window.location.href='./notice.html'">點我查看</div>
+        </div>
+        <div class="donation-container">
+            <h2>操作 & <br>設定語言教學</h2>
+            <div class="donation-button" onclick="window.location.href='./setLanguage.html'">點我查看</div>
+        </div>
+        <div class="donation-container">
+            <h2>創立群組教學</h2>
+            <div class="donation-button" onclick="window.location.href='./createGroup.html'">點我查看</div>
+        </div>
+        <div class="donation-container">
+            <h2>邀請機器人教學</h2>
+            <div class="donation-button" onclick="window.location.href='./joinLineBot.html'">點我查看</div>
+        </div>
+        <div class="donation-container">
+            <h2>與我聯絡</h2>
+            <div class="donation-button" onclick="window.location.href='https://line.me/ti/p/jmQ7NUoDUH'">開發人員 LINE</div>
+            <img src="/image/line_me.jpg" alt="王証彥"
+                onclick="window.location.href='https://line.me/ti/p/jmQ7NUoDUH'" style="margin-top: 15px;">
+        </div>
+        <div class="donation-container">
+            <h2>LINE Bot 機器人</h2>
+            <div class="donation-button" onclick="window.location.href='https://line.me/R/ti/p/%40315ajptl'">點我加 LINE Bot</div>
+            <img src="https://raw.githubusercontent.com/albert20699/linebot/main/Translator/messageImage_1667489288623.jpg" alt="linebot"
+                onclick="window.location.href='https://line.me/R/ti/p/%40315ajptl'" style="margin-top: 15px;">
+        </div>
     </div>
 </div>
+
+
+<div id="englishArea" style="display: block;">
+    <div class="donation">
+        <div class="donation-container">
+            <h2>Details & <br>Precautions</h2>
+            <div class="donation-button" onclick="window.location.href='./notice.html'">Click to view</div>
+        </div>
+        <div class="donation-container">
+            <h2>Set Language Tutorial</h2>
+            <div class="donation-button" onclick="window.location.href='./setLanguage.html'">Click to view</div>
+        </div>
+        <div class="donation-container">
+            <h2>Create Group Tutorial</h2>
+            <div class="donation-button" onclick="window.location.href='./createGroup.html'">Click to view</div>
+        </div>
+        <div class="donation-container">
+            <h2>Invite Bot Tutorial</h2>
+            <div class="donation-button" onclick="window.location.href='./joinLineBot.html'">Click to view</div>
+        </div>
+        <div class="donation-container">
+            <h2>Contact Me</h2>
+            <div class="donation-button" onclick="window.location.href='https://line.me/ti/p/jmQ7NUoDUH'">Developer's LINE</div>
+            <img src="/image/line_me.jpg" alt="王証彥"
+                onclick="window.location.href='https://line.me/ti/p/jmQ7NUoDUH'" style="margin-top: 15px;">
+        </div>
+        <div class="donation-container">
+            <h2>LINE Bot</h2>
+            <div class="donation-button" onclick="window.location.href='https://line.me/R/ti/p/%40315ajptl'">Click to add LINE Bot</div>
+            <img src="https://raw.githubusercontent.com/albert20699/linebot/main/Translator/messageImage_1667489288623.jpg" alt="linebot"
+                onclick="window.location.href='https://line.me/R/ti/p/%40315ajptl'" style="margin-top: 15px;">
+        </div>
+    </div>
+</div>
+
 
 <script>
     var bodyElement = document.body;
@@ -252,6 +289,20 @@
         alert('捐款按鈕 ' + donationNumber + ' 被點擊了！');
     }
 </script>
+<script>
+    // 取得 preferredLanguage 值
+    var preferredLanguage = localStorage.getItem('preferredLanguage');
+    // 根據 preferredLanguage 顯示相應的區域
+    if (preferredLanguage === "zh") {
+        document.getElementById('chineseArea').style.removeProperty('display');
+    } else if (preferredLanguage === "en") {
+        document.getElementById('englishArea').style.removeProperty('display');
+    } else {
+        document.getElementById('chineseArea').style.removeProperty('display');
+        localStorage.removeItem('preferredLanguage');
+    }
+</script>
+
         </section>
     </article>
 </div>

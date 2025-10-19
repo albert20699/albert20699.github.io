@@ -144,11 +144,43 @@
         <section class="post-content">
             <br>
 
+<div id="chineseArea" style="display: none;">
+
 <h1 id="邀請好友加入群組"><a href="#邀請好友加入群組" class="headerlink" title="邀請好友加入群組"></a>邀請好友加入群組</h1><img src="/image/joinLineBot1.png" style="aspect-ratio: auto; width: 100%; max-width: 500px; margin: 0;">
 
 <h1 id="點選機器人並邀請"><a href="#點選機器人並邀請" class="headerlink" title="點選機器人並邀請"></a>點選機器人並邀請</h1><img src="/image/joinLineBot2.png" style="aspect-ratio: auto; width: 100%; max-width: 500px; margin: 0;">
 
 <h1 id="邀請機器人完成"><a href="#邀請機器人完成" class="headerlink" title="邀請機器人完成"></a>邀請機器人完成</h1><img src="/image/joinLineBot3.jpg" style="aspect-ratio: auto; width: 100%; max-width: 500px; margin: 0;">
+
+</div>
+
+
+<div id="englishArea" style="display: none;">
+
+<h1 id="Invite-Friends-to-Group"><a href="#Invite-Friends-to-Group" class="headerlink" title="Invite Friends to Group"></a>Invite Friends to Group</h1><img src="/image/joinLineBot_en1.jpg" style="aspect-ratio: auto; width: 100%; max-width: 500px; margin: 0;">
+
+<h1 id="Select-Bot-and-Invite"><a href="#Select-Bot-and-Invite" class="headerlink" title="Select Bot and Invite"></a>Select Bot and Invite</h1><img src="/image/joinLineBot_en2.jpg" style="aspect-ratio: auto; width: 100%; max-width: 500px; margin: 0;">
+
+<h1 id="Bot-Invitation-Complete"><a href="#Bot-Invitation-Complete" class="headerlink" title="Bot Invitation Complete"></a>Bot Invitation Complete</h1><img src="/image/joinLineBot_en3.jpg" style="aspect-ratio: auto; width: 100%; max-width: 500px; margin: 0;">
+
+</div>
+
+
+
+<script>
+    // 取得 preferredLanguage 值
+    var preferredLanguage = localStorage.getItem('preferredLanguage');
+    // 根據 preferredLanguage 顯示相應的區域
+    if (preferredLanguage === "zh") {
+        document.getElementById('chineseArea').style.removeProperty('display');
+    } else if (preferredLanguage === "en") {
+        document.getElementById('englishArea').style.removeProperty('display');
+    } else {
+        document.getElementById('chineseArea').style.removeProperty('display');
+        localStorage.removeItem('preferredLanguage');
+    }
+</script>
+
         </section>
     </article>
 </div>
