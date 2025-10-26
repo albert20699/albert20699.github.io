@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>取得 LINE 使用者 ID</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; text-align: center; }
+        #loading { font-size: 1.2em; color: #888; }
+        #userInfo { display: none; margin-top: 20px; }
+        #userId { color: #00B900; font-weight: bold; word-wrap: break-word; }
+        #error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>LIFF 使用者資料讀取</h1>
+    <p id="loading">正在初始化 LIFF，請稍候...</p>
+    <!-- 用於顯示使用者資訊的區塊 -->
+    <div id="userInfo">
+        <h2>成功取得您的 LINE User ID：</h2>
+        <p id="userId"></p>
+        <hr>
+        <p>你可以將這個 ID 傳送到你的後端伺服器進行記錄。</p>
+    </div>
+    <!-- 用於顯示錯誤訊息 -->
+    <p id="error"></p>
+    <!-- 1. 引入 LIFF SDK -->
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script>
+        async function main() {
+            try {
+                // 2. 初始化 LIFF
+                // 將 'YOUR_LIFF_ID' 換成你自己的 LIFF ID
+                await liff.init({ liffId: '2008361293-eKkGwJb8' });
+                // 3. 檢查使用者是否登入
+                if (!liff.isLoggedIn()) {
+                    // 如果沒登入，就導向登入頁面
+                    document.getElementById('loading').innerText = '請先登入 LINE...';
+                    liff.login();
+                } else {
+                    // 4. 如果已登入，就去取得使用者資料
+                    const profile = await liff.getProfile();
+                    // 5. 將使用者 ID 顯示在畫面上
+                    document.getElementById('userId').innerText = profile.userId;
+                    // 隱藏讀取訊息，並顯示使用者資訊區塊
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('userInfo').style.display = 'block';
+                }
+            } catch (err) {
+                // 如果發生錯誤，顯示錯誤訊息
+                console.error(err);
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('error').innerText = '發生錯誤，請確認 LIFF ID 是否正確，並在 LINE App 中開啟。錯誤訊息：' + err;
+            }
+        }
+        // 執行主程式
+        main();
+    </script>
+
+</body>
+</html>
