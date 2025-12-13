@@ -144,14 +144,107 @@
         <section class="post-content">
             <br>
 
-<h1 id="iPassMoney-註冊教學"><a href="#iPassMoney-註冊教學" class="headerlink" title="iPassMoney 註冊教學"></a>iPassMoney 註冊教學</h1><iframe height="600" src="https://www.youtube.com/embed/TFBrIVelGzQ?si=uhdSGoTXAcgpEHnD" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="aspect-ratio: auto; width: 100%; max-width: 500px; margin: 0;"></iframe>
+<style>
+  .ipass-card {
+    background-color: #f7f9fc;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+  }
+
+  .ipass-label {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  .ipass-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .ipass-value {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #222;
+    font-family: monospace; 
+    letter-spacing: 1px;
+  }
+
+  .ipass-btn {
+    background-color: #00C643;
+    color: white;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    cursor: pointer;
+    transition: background 0.3s;
+    outline: none;
+  }
+
+  .ipass-btn:hover {
+    background-color: #009e35;
+  }
+  
+  .ipass-btn.copied {
+    background-color: #555;
+  }
+</style>
+
+<!-- 主要內容區塊 -->
+
+<h1 id="iPASS-MONEY-APP-無縫接軌"><a href="#iPASS-MONEY-APP-無縫接軌" class="headerlink" title="iPASS MONEY APP 無縫接軌"></a>iPASS MONEY APP 無縫接軌</h1><a href="https://static01-ipass.cdn.hinet.net/ipassweb/iPassWebV2/News/103987/251203_N1.jpg" target="_blank">
+  <img src="https://static01-ipass.cdn.hinet.net/ipassweb/iPassWebV2/News/103987/251203_N1.jpg" style="aspect-ratio: auto; width: 100%; max-width: 800px; margin: 0;">
+</a>
+
+<h1 id="轉帳使用教學"><a href="#轉帳使用教學" class="headerlink" title="轉帳使用教學"></a>轉帳使用教學</h1><!-- 卡片 1: 銀行代碼 -->
+<div class="ipass-card">
+<div class="ipass-label">銀行代碼 (一卡通)</div>
+<div class="ipass-row">
+    <span id="bankCode" class="ipass-value">391</span>
+    <button class="ipass-btn" onclick="copyToClipboard('bankCode', this)">複製</button>
+</div>
+</div>
+
+<!-- 卡片 2: 帳號 -->
+<div class="ipass-card">
+<div class="ipass-label">轉入帳號</div>
+<div class="ipass-row">
+    <span id="accountNumber" class="ipass-value">0000001517043856</span>
+    <button class="ipass-btn" onclick="copyToClipboard('accountNumber', this)">複製</button>
+</div>
+</div>
 
 
-<h1 id="儲值-iPassMoney-錢包-教學"><a href="#儲值-iPassMoney-錢包-教學" class="headerlink" title="儲值 iPassMoney 錢包 教學"></a>儲值 iPassMoney 錢包 教學</h1><iframe width="560" height="315" src="https://www.youtube.com/embed/l7kdhNAppW8?si=AJOim-YkOyrx9DZe" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="aspect-ratio: auto; width: 100%; max-width: 500px; margin: 0;"></iframe>
+<script>
+  function copyToClipboard(elementId, btn) {
+    const text = document.getElementById(elementId).innerText;
+    
+    // 建立臨時輸入框來執行複製
+    const tempInput = document.createElement("input");
+    tempInput.value = text;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
 
-<h1 id="好友轉帳-功能-教學"><a href="#好友轉帳-功能-教學" class="headerlink" title="好友轉帳 功能 教學"></a>好友轉帳 功能 教學</h1><iframe width="560" height="315" src="https://www.youtube.com/embed/q_ERE8AZREM?si=v58WaCkxTbO1G8ng" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="aspect-ratio: auto; width: 100%; max-width: 500px; margin: 0;"></iframe>
+    // 變更按鈕狀態給予回饋
+    const originalText = btn.innerText;
+    btn.innerText = "已複製";
+    btn.classList.add("copied");
 
-
+    // 2秒後恢復
+    setTimeout(() => {
+      btn.innerText = originalText;
+      btn.classList.remove("copied");
+    }, 2000);
+  }
+</script>
         </section>
     </article>
 </div>
