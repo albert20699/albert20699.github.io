@@ -1,5 +1,10 @@
 <script>
     // 清除 preferredLanguage 的設定值
     localStorage.removeItem('preferredLanguage');
+    
+    // 一併清除圖片點擊引導的紀錄，讓手指提示重新出現
+    localStorage.removeItem('hasClickedImage');
+    
+    // 重新導向回公告頁面
     window.location.href = '/linebot/notice.html';
 </script>
