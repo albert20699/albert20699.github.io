@@ -134,13 +134,71 @@
     <article class="post-wrap page">
         
         <section class="post-content">
-            <br>
+            <style>
+    /* 圖片外層容器，用來定位提示框 */
+    .img-wrapper {
+        position: relative;
+        display: block; /* 確保佔滿寬度並置中 */
+        margin: 0 auto;
+    }
+    
+    /* 點擊提示動畫樣式 */
+    .click-hint {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.75);
+        color: #fff;
+        padding: 12px 24px;
+        border-radius: 30px;
+        font-size: 16px;
+        font-weight: bold;
+        pointer-events: none; /* 讓滑鼠點擊可以穿透提示框 */
+        display: none; /* 預設隱藏，由 JS 控制顯示 */
+        align-items: center;
+        gap: 8px;
+        animation: pulse 1.5s infinite;
+        z-index: 10;
+        white-space: nowrap;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+
+    /* 呼吸燈放大縮小動畫 */
+    @keyframes pulse {
+        0% { transform: translate(-50%, -50%) scale(0.95); }
+        50% { transform: translate(-50%, -50%) scale(1.05); }
+        100% { transform: translate(-50%, -50%) scale(0.95); }
+    }
+
+    /* 修正列表文字對齊，避免字距被異常拉開 */
+    #chineseArea ol, #chineseArea ul, #englishArea ol, #englishArea ul,
+    #chineseArea li, #englishArea li {
+        text-align: left !important;
+        letter-spacing: normal !important;
+    }
+
+    /* 強制長網址/區塊自動換行，避免凸出螢幕 */
+    #chineseArea a, #englishArea a,
+    #chineseArea blockquote, #englishArea blockquote,
+    #chineseArea pre, #englishArea pre,
+    #chineseArea code, #englishArea code {
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        word-break: break-all !important;
+    }
+
+    /* 【修正重點】只有 pre 和 code 區塊需要保留換行；a 標籤絕對不能加 pre-wrap，否則圖片會被程式碼的換行拉開巨量空白 */
+    #chineseArea pre, #englishArea pre,
+    #chineseArea code, #englishArea code {
+        white-space: pre-wrap !important;
+    }
+</style>
+
+<br>
 <div id="chineseArea" style="display: none;">
 
-<h1 id="簡易比較表-可點擊開啟"><a href="#簡易比較表-可點擊開啟" class="headerlink" title="簡易比較表(可點擊開啟)"></a>簡易比較表(可點擊開啟)</h1><a href="/image/introduce20.jpg" target="_blank">
-    <img src="/image/introduce20.jpg" style="aspect-ratio: auto; width: 100%; max-width: 750px; margin: 0;">
-</a>
-
+<h1 id="簡易比較表-可點擊開啟"><a href="#簡易比較表-可點擊開啟" class="headerlink" title="簡易比較表(可點擊開啟)"></a>簡易比較表(可點擊開啟)</h1><div class="img-wrapper" style="max-width: 750px;"><a href="/image/introduce20.jpg" target="_blank" class="clickable-img-link"><img src="/image/introduce20.jpg" style="aspect-ratio: auto; width: 100%; margin: 0;"></a><div class="click-hint">👆 點擊放大查看</div></div>
 
 <h1 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h1><ol>
 <li>（備註一）各類支付方式：<a href="https://albert20699.github.io/payment/">https://albert20699.github.io/payment/</a></li>
@@ -151,18 +209,13 @@
 <li>本服務以服務大眾性質為宗旨，開發人員有對於整體服務最終解釋的權力。</li>
 <li>開發人員LINE：<a target="_blank" rel="noopener" href="https://line.me/ti/p/jmQ7NUoDUH/">https://line.me/ti/p/jmQ7NUoDUH/</a></li>
 </ol>
-<h1 id="詳細比較表-可點擊開啟"><a href="#詳細比較表-可點擊開啟" class="headerlink" title="詳細比較表(可點擊開啟)"></a>詳細比較表(可點擊開啟)</h1><a href="/image/introduce16.png" target="_blank">
-    <img src="/image/introduce16.png" style="aspect-ratio: auto; width: 100%; max-width: 750px; margin: 0;">
-</a>
-
+<h1 id="詳細比較表-可點擊開啟"><a href="#詳細比較表-可點擊開啟" class="headerlink" title="詳細比較表(可點擊開啟)"></a>詳細比較表(可點擊開啟)</h1><div class="img-wrapper" style="max-width: 750px;"><a href="/image/introduce16.png" target="_blank" class="clickable-img-link"><img src="/image/introduce16.png" style="aspect-ratio: auto; width: 100%; margin: 0;"></a><div class="click-hint">👆 點擊放大查看</div></div>
 
 </div>
+
 <div id="englishArea" style="display: none;">
 
-
-<h1 id="Simple-Comparison-Table-Clickable"><a href="#Simple-Comparison-Table-Clickable" class="headerlink" title="Simple Comparison Table (Clickable)"></a>Simple Comparison Table (Clickable)</h1><a href="/image/introduce_en13.jpg" target="_blank">
-    <img src="/image/introduce_en13.jpg" style="aspect-ratio: auto; width: 100%; max-width: 800px; margin: 0;">
-</a>
+<h1 id="Simple-Comparison-Table-Clickable"><a href="#Simple-Comparison-Table-Clickable" class="headerlink" title="Simple Comparison Table (Clickable)"></a>Simple Comparison Table (Clickable)</h1><div class="img-wrapper" style="max-width: 800px;"><a href="/image/introduce_en13.jpg" target="_blank" class="clickable-img-link"><img src="/image/introduce_en13.jpg" style="aspect-ratio: auto; width: 100%; margin: 0;"></a><div class="click-hint">👆 Click to enlarge</div></div>
 
 <h1 id="Important-Information"><a href="#Important-Information" class="headerlink" title="Important Information"></a>Important Information</h1><ol>
 <li>(Note 1) Various payment methods: <a href="https://albert20699.github.io/payment/">https://albert20699.github.io/payment/</a></li>
@@ -172,25 +225,49 @@
 <li>This service aims to serve the public. The developer has the final authority to interpret the overall service.</li>
 <li>Developer LINE: <a target="_blank" rel="noopener" href="https://line.me/ti/p/jmQ7NUoDUH/">https://line.me/ti/p/jmQ7NUoDUH/</a></li>
 </ol>
-<h1 id="Detailed-Comparison-Table-Clickable"><a href="#Detailed-Comparison-Table-Clickable" class="headerlink" title="Detailed Comparison Table (Clickable)"></a>Detailed Comparison Table (Clickable)</h1><a href="/image/introduce_en9.png" target="_blank">
-    <img src="/image/introduce_en9.png" style="aspect-ratio: auto; width: 100%; max-width: 800px; margin: 0;">
-</a>
+<h1 id="Detailed-Comparison-Table-Clickable"><a href="#Detailed-Comparison-Table-Clickable" class="headerlink" title="Detailed Comparison Table (Clickable)"></a>Detailed Comparison Table (Clickable)</h1><div class="img-wrapper" style="max-width: 800px;"><a href="/image/introduce_en9.png" target="_blank" class="clickable-img-link"><img src="/image/introduce_en9.png" style="aspect-ratio: auto; width: 100%; margin: 0;"></a><div class="click-hint">👆 Click to enlarge</div></div>
 
+</div>
 
 <script>
-    // 取得 preferredLanguage 值
-    var preferredLanguage = localStorage.getItem('preferredLanguage');
-    // 根據 preferredLanguage 顯示相應的區域
-    if (preferredLanguage === "zh") {
-        document.getElementById('chineseArea').style.removeProperty('display');
-    } else if (preferredLanguage === "en") {
-        document.getElementById('englishArea').style.removeProperty('display');
-    } else {
-        document.getElementById('chineseArea').style.removeProperty('display');
-        localStorage.removeItem('preferredLanguage');
-    }
-</script>
+    // 確保 DOM 載入完成後執行
+    document.addEventListener("DOMContentLoaded", function() {
+        var preferredLanguage = localStorage.getItem('preferredLanguage');
+        var activeArea = null;
 
+        if (preferredLanguage === "zh") {
+            activeArea = document.getElementById('chineseArea');
+            activeArea.style.removeProperty('display');
+        } else if (preferredLanguage === "en") {
+            activeArea = document.getElementById('englishArea');
+            activeArea.style.removeProperty('display');
+        } else {
+            activeArea = document.getElementById('chineseArea');
+            activeArea.style.removeProperty('display');
+            localStorage.removeItem('preferredLanguage');
+        }
+
+        // 處理點擊引導提示邏輯
+        if (!localStorage.getItem('hasClickedImage')) {
+            if (activeArea) {
+                var hints = activeArea.querySelectorAll('.click-hint');
+                hints.forEach(function(hint) {
+                    hint.style.display = 'flex';
+                });
+
+                var clickableLinks = activeArea.querySelectorAll('.clickable-img-link');
+                clickableLinks.forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        document.querySelectorAll('.click-hint').forEach(function(h) {
+                            h.style.display = 'none';
+                        });
+                        localStorage.setItem('hasClickedImage', 'true');
+                    });
+                });
+            }
+        }
+    });
+</script>
         </section>
     </article>
 </div>
