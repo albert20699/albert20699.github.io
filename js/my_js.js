@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', function () {
         icon: 'info',
         allowOutsideClick: false, // 禁止點擊外部關閉彈窗
       }).then((result) => {
+        // 確保手指引導動畫一定會再次出現
+        localStorage.removeItem('hasClickedImage');
+
         if (result.isConfirmed) {
           localStorage.setItem('preferredLanguage', 'zh');
           location.reload();
