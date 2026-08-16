@@ -88,6 +88,10 @@
                 
                     <a class="menu-item" href="/linebot">LineBot</a>
                 
+                <div class="lang-toggle">
+                    <button class="lang-btn" data-lang="zh" onclick="switchLanguage('zh')">中</button>
+                    <button class="lang-btn" data-lang="en" onclick="switchLanguage('en')">EN</button>
+                </div>
                 <input id="switch_default" type="checkbox" class="switch_default">
                 <label for="switch_default" class="toggleBtn"></label>
             </div>
@@ -111,6 +115,10 @@
                 
                     <a class="menu-item" href="/linebot">LineBot</a>
                 
+                <div class="lang-toggle lang-toggle--mobile">
+                    <button class="lang-btn" data-lang="zh" onclick="switchLanguage('zh');mobileBtn()">中文</button>
+                    <button class="lang-btn" data-lang="en" onclick="switchLanguage('en');mobileBtn()">English</button>
+                </div>
             </div>
         </div>
     </nav>

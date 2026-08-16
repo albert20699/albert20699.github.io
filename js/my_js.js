@@ -1,18 +1,41 @@
-// ── Shared language-area utility (called inline by bilingual pages) ──────────
-window.showPreferredLanguage = function () {
-  var lang = localStorage.getItem('preferredLanguage');
-  var area;
-  if (lang === 'en') {
-    area = document.getElementById('englishArea');
-  } else {
-    area = document.getElementById('chineseArea');
-    if (lang !== 'zh') localStorage.removeItem('preferredLanguage');
-  }
+// ── Shared language utilities (called inline by bilingual pages) ──────────────
+
+// Hide both areas then reveal the one matching lang; returns the visible area.
+window.applyLanguage = function (lang) {
+  var zh = document.getElementById('chineseArea');
+  var en = document.getElementById('englishArea');
+  if (zh) zh.style.display = 'none';
+  if (en) en.style.display = 'none';
+  var area = lang === 'en' ? en : zh;
   if (area) area.style.removeProperty('display');
-  return area; // returned so callers can do additional setup (e.g. notice.md click-hints)
+  return area;
+};
+
+// Read localStorage and apply; returns the visible area for callers (e.g. notice.md click-hints).
+window.showPreferredLanguage = function () {
+  var lang = localStorage.getItem('preferredLanguage') || 'zh';
+  if (lang !== 'zh' && lang !== 'en') { lang = 'zh'; localStorage.removeItem('preferredLanguage'); }
+  return window.applyLanguage(lang);
+};
+
+// Switch language, persist to localStorage, update page areas + navbar toggle.
+window.switchLanguage = function (lang) {
+  localStorage.setItem('preferredLanguage', lang);
+  applyLanguage(lang);
+  document.querySelectorAll('.lang-btn[data-lang]').forEach(function (btn) {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
 };
 
 document.addEventListener('DOMContentLoaded', function () {
+  // ── Init navbar language-toggle button state ──────────────────────────────
+  try {
+    var initLang = localStorage.getItem('preferredLanguage') || 'zh';
+    document.querySelectorAll('.lang-btn[data-lang]').forEach(function (btn) {
+      btn.classList.toggle('active', btn.dataset.lang === initLang);
+    });
+  } catch (e) {}
+
   // ── Sync .donation-button dark-theme class with body ─────────────────────
   try {
     var bodyEl = document.body;
