@@ -1,4 +1,32 @@
+// ── Shared language-area utility (called inline by bilingual pages) ──────────
+window.showPreferredLanguage = function () {
+  var lang = localStorage.getItem('preferredLanguage');
+  var area;
+  if (lang === 'en') {
+    area = document.getElementById('englishArea');
+  } else {
+    area = document.getElementById('chineseArea');
+    if (lang !== 'zh') localStorage.removeItem('preferredLanguage');
+  }
+  if (area) area.style.removeProperty('display');
+  return area; // returned so callers can do additional setup (e.g. notice.md click-hints)
+};
+
 document.addEventListener('DOMContentLoaded', function () {
+  // ── Sync .donation-button dark-theme class with body ─────────────────────
+  try {
+    var bodyEl = document.body;
+    var donationBtns = document.querySelectorAll('.donation-button');
+    if (donationBtns.length) {
+      var applyBtnTheme = function () {
+        var dark = bodyEl.classList.contains('dark-theme');
+        donationBtns.forEach(function (el) { el.classList.toggle('dark-theme', dark); });
+      };
+      applyBtnTheme();
+      new MutationObserver(applyBtnTheme).observe(bodyEl, { attributes: true, attributeFilter: ['class'] });
+    }
+  } catch (e) {}
+
   try {
     // 檢查localStorage中是否有設定語言的變數
     var preferredLanguage = localStorage.getItem('preferredLanguage');

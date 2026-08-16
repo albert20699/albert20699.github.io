@@ -6,6 +6,9 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 
     <meta name="author" content="Albert Wang">
 
@@ -58,20 +61,17 @@
 
 <body>
     <script>
-        // this function is used to check current theme before page loaded.
+        // Set dark-theme class on body before page renders to avoid flash
         (() => {
             const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
             const isDark = currentTheme === 'dark';
-            const pagebody = document.getElementsByTagName('body')[0]
+            const pagebody = document.getElementsByTagName('body')[0];
             if (isDark) {
                 pagebody.classList.add('dark-theme');
-                // mobile
-                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
             } else {
                 pagebody.classList.remove('dark-theme');
-                // mobile
-                document.getElementById("mobile-toggle-theme").innerText = "· Light"
             }
+            // mobile toggle text is updated by script.js once DOM is ready
         })();
     </script>
 
@@ -134,62 +134,7 @@
     <article class="post-wrap page">
         
         <section class="post-content">
-            <style>
-    .donation {
-        display: inline-flex;
-        align-items: stretch;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        margin-top: 20px;
-    }
-
-    .donation-container {
-        display: flex;
-        flex-wrap: wrap;
-        align-content: space-between;
-        justify-content: center;
-        margin: 10px;
-        padding: 0 20px 30px 20px;
-        border: 2px solid #ccc;
-        border-radius: 5px;
-        width: 200px;
-    }
-
-    .donation h2 {
-        text-align: center;
-        padding-top: 0em;
-        padding-bottom: 0em;
-    }
-
-    .donation-button {
-        padding: 10px 20px;
-        font-weight: bold;
-        text-align: center;
-        cursor: pointer;
-        border-radius: 5px;
-        color: #fff;
-        background-color: #3498db;
-        height: 28px;
-        width: -webkit-fill-available;
-    }
-
-    .donation-button.dark-theme {
-        color: #000;
-        background-color: #fff;
-    }
-
-
-    .unordered-list-main {
-        font-weight: bold;
-        font-size: 1.1em;
-    }
-
-    .unordered-list-item {
-        padding-left: 20px;
-    }
-</style>
-
-<div id="chineseArea" style="display: none;">
+            <div id="chineseArea" style="display: none;">
     <div class="donation">
         <div class="donation-container">
             <h2>LINE Pay Money</h2>
@@ -203,8 +148,8 @@
                     <div>在 LINE 裡面轉給好友</div>
                 </div>
             </div>
-            <div class="donation-button" onclick="window.location.href='./LINEPayMoney.html'">教學</div>
-        </div> 
+            <a class="donation-button" href="./LINEPayMoney.html">教學</a>
+        </div>
         <div class="donation-container">
             <h2>iPASS MONEY</h2>
             <div style="margin-bottom: 10px;">
@@ -217,7 +162,7 @@
                     <div>使用 APP 操作喔~</div>
                 </div>
             </div>
-            <div class="donation-button" onclick="window.location.href='./iPASSMONEY.html'">教學</div>
+            <a class="donation-button" href="./iPASSMONEY.html">教學</a>
         </div>
         <div class="donation-container">
             <h2>使用 街口支付</h2>
@@ -231,8 +176,8 @@
                     <div>請【街口】轉【街口】</div>
                 </div>
             </div>
-            <div class="donation-button" onclick="window.location.href='./JKOPay.html'">支付</div>
-        </div>        
+            <a class="donation-button" href="./JKOPay.html">支付</a>
+        </div>
         <div class="donation-container">
             <h2>使用 綠界 支付</h2>
             <div style="margin-bottom: 10px;">
@@ -249,7 +194,7 @@
                     <div>可【銀行轉帳】啦~</div>
                 </div>
             </div>
-            <div class="donation-button" onclick="window.location.href='https://p.ecpay.com.tw/F994666'">支付</div>
+            <a class="donation-button" href="https://p.ecpay.com.tw/F994666" target="_blank" rel="noopener">支付</a>
         </div>
         <div class="donation-container">
             <h2>buymeacoffee</h2>
@@ -265,8 +210,8 @@
                     <div>【美金】扣款</div>
                 </div>
             </div>
-            <div class="donation-button" onclick="window.location.href='./buymeacoffee.html'" style="margin-bottom: 10px;">教學</div>
-            <div class="donation-button" onclick="window.location.href='https://www.buymeacoffee.com/albert20699'">支付</div>
+            <a class="donation-button" href="./buymeacoffee.html" style="margin-bottom: 10px;">教學</a>
+            <a class="donation-button" href="https://www.buymeacoffee.com/albert20699" target="_blank" rel="noopener">支付</a>
         </div>
         <div class="donation-container">
             <h2>使用 PayPal 支付</h2>
@@ -282,8 +227,7 @@
                     <div>全球最大第三方金融機構</div>
                 </div>
             </div>
-            <div class="donation-button"
-                onclick="window.location.href='https://paypal.me/LINETranslate?country.x=TW&locale.x=zh_TW'">支付</div>
+            <a class="donation-button" href="https://paypal.me/LINETranslate?country.x=TW&locale.x=zh_TW" target="_blank" rel="noopener">支付</a>
         </div>
         <div class="donation-container">
             <h2>做公益，換翻譯</h2>
@@ -299,7 +243,7 @@
                     <div>我就讓您使用翻譯</div>
                 </div>
             </div>
-            <div class="donation-button" onclick="window.location.href='./donate.html'">說明</div>
+            <a class="donation-button" href="./donate.html">說明</a>
         </div>
         <!-- <div class="donation-container">
             <h2>使用 8591 支付</h2>
@@ -314,13 +258,14 @@
                     <div>需要雙方多次交易確認</div>
                 </div>
             </div>
-            <div class="donation-button" onclick="window.location.href='https://www.8591.com.tw/'">支付</div>
+            <a class="donation-button" href="https://www.8591.com.tw/" target="_blank" rel="noopener">支付</a>
         </div> -->
         <div class="donation-container">
             <h2>與我聯絡</h2>
-            <div class="donation-button" onclick="window.location.href='https://line.me/ti/p/jmQ7NUoDUH'">開發人員 LINE</div>
-            <img src="https://i.ibb.co/7gTs735/581450.jpg" alt="王証彥"
-                onclick="window.location.href='https://line.me/ti/p/jmQ7NUoDUH'" style="margin-top: 15px;">
+            <a class="donation-button" href="https://line.me/ti/p/jmQ7NUoDUH" target="_blank" rel="noopener">開發人員 LINE</a>
+            <a href="https://line.me/ti/p/jmQ7NUoDUH" target="_blank" rel="noopener">
+                <img src="https://i.ibb.co/7gTs735/581450.jpg" alt="王証彥" style="margin-top: 15px;">
+            </a>
         </div>
     </div>
 </div>
@@ -328,75 +273,44 @@
 <div id="englishArea" style="display: none;">
     <div class="donation">
         <div class="donation-container">
-            <h2>LINE Pay Money</h2> 
-            <div class="donation-button" onclick="window.location.href='./LINEPayMoney.html'">Pay</div>
+            <h2>LINE Pay Money</h2>
+            <a class="donation-button" href="./LINEPayMoney.html">Pay</a>
         </div>
         <div class="donation-container">
             <h2>iPASS MONEY</h2>
-            <div class="donation-button" onclick="window.location.href='./iPASSMONEY.html'">Pay</div>
+            <a class="donation-button" href="./iPASSMONEY.html">Pay</a>
         </div>
         <div class="donation-container">
             <h2>JKOPay</h2>
-            <div class="donation-button" onclick="window.location.href='./JKOPay.html'">Pay</div>
+            <a class="donation-button" href="./JKOPay.html">Pay</a>
         </div>
         <div class="donation-container">
             <h2>ECPAY <br>(Credit Card)</h2>
-            <div class="donation-button" onclick="window.location.href='https://p.ecpay.com.tw/F994666'">Pay</div>
+            <a class="donation-button" href="https://p.ecpay.com.tw/F994666" target="_blank" rel="noopener">Pay</a>
         </div>
         <div class="donation-container">
             <h2>buymeacoffee</h2>
-            <div class="donation-button" onclick="window.location.href='https://www.buymeacoffee.com/albert20699'">Pay</div>
+            <a class="donation-button" href="https://www.buymeacoffee.com/albert20699" target="_blank" rel="noopener">Pay</a>
         </div>
         <div class="donation-container" style="align-content: center;">
-            <h2> PayPal<br></h2>
-            <div class="donation-button"
-                onclick="window.location.href='https://paypal.me/LINETranslate?country.x=TW&locale.x=zh_TW'">Pay</div>
+            <h2>PayPal</h2>
+            <a class="donation-button" href="https://paypal.me/LINETranslate?country.x=TW&locale.x=zh_TW" target="_blank" rel="noopener">Pay</a>
         </div>
         <!-- <div class="donation-container" style="align-content: center;">
             <h2>8591 Trading Platform</h2>
-            <div class="donation-button" onclick="window.location.href='https://www.8591.com.tw/'">Pay</div>
+            <a class="donation-button" href="https://www.8591.com.tw/" target="_blank" rel="noopener">Pay</a>
         </div> -->
         <div class="donation-container">
             <h2>Contact Me</h2>
-            <div class="donation-button" onclick="window.location.href='https://line.me/ti/p/jmQ7NUoDUH'">Developer LINE</div>
-            <img src="https://i.ibb.co/7gTs735/581450.jpg" alt="王証彥"
-                onclick="window.location.href='https://line.me/ti/p/jmQ7NUoDUH'" style="margin-top: 15px;">
+            <a class="donation-button" href="https://line.me/ti/p/jmQ7NUoDUH" target="_blank" rel="noopener">Developer LINE</a>
+            <a href="https://line.me/ti/p/jmQ7NUoDUH" target="_blank" rel="noopener">
+                <img src="https://i.ibb.co/7gTs735/581450.jpg" alt="王証彥" style="margin-top: 15px;">
+            </a>
         </div>
     </div>
 </div>
 
-
-
-<script>
-    var bodyElement = document.body;
-    var followElements = document.querySelectorAll('.donation-button');
-    // 創建一個 MutationObserver 實例，監視body元素上class屬性的變化
-    var observer = new MutationObserver(function (mutations) {
-        mutations.forEach(function (mutation) {
-            // 當class變化時，更新followElement的class
-            followElements.forEach(function (element) {
-                element.className = bodyElement.className.includes('dark-theme') ? 'donation-button dark-theme' : 'donation-button';
-            });
-        });
-    });
-    // 配置 MutationObserver 監視的目標和選項
-    var config = { attributes: true, attributeFilter: ['class'] };
-    // 開始監視
-    observer.observe(bodyElement, config);
-</script>
-<script>
-    // 取得 preferredLanguage 值
-    var preferredLanguage = localStorage.getItem('preferredLanguage');
-    // 根據 preferredLanguage 顯示相應的區域
-    if (preferredLanguage === "zh") {
-        document.getElementById('chineseArea').style.removeProperty('display');
-    } else if (preferredLanguage === "en") {
-        document.getElementById('englishArea').style.removeProperty('display');
-    } else {
-        document.getElementById('chineseArea').style.removeProperty('display');
-        localStorage.removeItem('preferredLanguage');
-    }
-</script>
+<script>showPreferredLanguage();</script>
 
         </section>
     </article>

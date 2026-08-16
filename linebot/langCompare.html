@@ -6,6 +6,9 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 
     <meta name="author" content="Albert Wang">
 
@@ -58,20 +61,17 @@
 
 <body>
     <script>
-        // this function is used to check current theme before page loaded.
+        // Set dark-theme class on body before page renders to avoid flash
         (() => {
             const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
             const isDark = currentTheme === 'dark';
-            const pagebody = document.getElementsByTagName('body')[0]
+            const pagebody = document.getElementsByTagName('body')[0];
             if (isDark) {
                 pagebody.classList.add('dark-theme');
-                // mobile
-                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
             } else {
                 pagebody.classList.remove('dark-theme');
-                // mobile
-                document.getElementById("mobile-toggle-theme").innerText = "· Light"
             }
+            // mobile toggle text is updated by script.js once DOM is ready
         })();
     </script>
 

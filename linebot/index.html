@@ -6,6 +6,9 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 
     <meta name="author" content="Albert Wang">
 
@@ -58,20 +61,17 @@
 
 <body>
     <script>
-        // this function is used to check current theme before page loaded.
+        // Set dark-theme class on body before page renders to avoid flash
         (() => {
             const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
             const isDark = currentTheme === 'dark';
-            const pagebody = document.getElementsByTagName('body')[0]
+            const pagebody = document.getElementsByTagName('body')[0];
             if (isDark) {
                 pagebody.classList.add('dark-theme');
-                // mobile
-                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
             } else {
                 pagebody.classList.remove('dark-theme');
-                // mobile
-                document.getElementById("mobile-toggle-theme").innerText = "· Light"
             }
+            // mobile toggle text is updated by script.js once DOM is ready
         })();
     </script>
 
@@ -134,166 +134,77 @@
     <article class="post-wrap page">
         
         <section class="post-content">
-            <style>
-    .donation {
-        display: inline-flex;
-        align-items: stretch;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        align-items: flex-start;
-        margin-top: 20px;
-    }
-
-    .donation-container {
-        display: flex;
-        flex-wrap: wrap;
-        align-content: space-between;
-        justify-content: center;
-        margin: 10px;
-        padding: 0 20px 30px 20px;
-        border: 2px solid #ccc;
-        border-radius: 5px;
-        width: 200px;
-    }
-
-    .donation h2 {
-        text-align: center;
-        padding-top: 0em;
-        padding-bottom: 0em;
-    }
-
-    .donation-button {
-        padding: 10px 20px;
-        font-weight: bold;
-        text-align: center;
-        cursor: pointer;
-        border-radius: 5px;
-        color: #fff;
-        background-color: #3498db;
-        height: 28px;
-        width: -webkit-fill-available;
-    }
-
-    .donation-button.dark-theme {
-        color: #000;
-        background-color: #fff;
-    }
-
-
-    .unordered-list-main {
-        font-weight: bold;
-        font-size: 1.1em;
-    }
-
-    .unordered-list-item {
-        padding-left: 20px;
-    }
-</style>
-
-<div id="chineseArea" style="display: none;">
+            <div id="chineseArea" style="display: none;">
     <div class="donation">
         <div class="donation-container">
             <h2>詳細資料 & <br>注意事項</h2>
-            <div class="donation-button" onclick="window.location.href='./notice.html'">點我查看</div>
+            <a class="donation-button" href="./notice.html">點我查看</a>
         </div>
         <div class="donation-container">
             <h2>操作 & <br>設定語言教學</h2>
-            <div class="donation-button" onclick="window.location.href='./setLanguage.html'">點我查看</div>
+            <a class="donation-button" href="./setLanguage.html">點我查看</a>
         </div>
         <div class="donation-container">
             <h2>創立群組教學</h2>
-            <div class="donation-button" onclick="window.location.href='./createGroup.html'">點我查看</div>
+            <a class="donation-button" href="./createGroup.html">點我查看</a>
         </div>
         <div class="donation-container">
             <h2>邀請機器人教學</h2>
-            <div class="donation-button" onclick="window.location.href='./joinLineBot.html'">點我查看</div>
+            <a class="donation-button" href="./joinLineBot.html">點我查看</a>
         </div>
         <div class="donation-container">
             <h2>與我聯絡</h2>
-            <div class="donation-button" onclick="window.location.href='https://line.me/ti/p/jmQ7NUoDUH'">開發人員 LINE</div>
-            <img src="/image/line_me.jpg" alt="王証彥"
-                onclick="window.location.href='https://line.me/ti/p/jmQ7NUoDUH'" style="margin-top: 15px;">
+            <a class="donation-button" href="https://line.me/ti/p/jmQ7NUoDUH" target="_blank" rel="noopener">開發人員 LINE</a>
+            <a href="https://line.me/ti/p/jmQ7NUoDUH" target="_blank" rel="noopener">
+                <img src="/image/line_me.jpg" alt="王証彥" style="margin-top: 15px;">
+            </a>
         </div>
         <div class="donation-container">
             <h2>LINE Bot 機器人</h2>
-            <div class="donation-button" onclick="window.location.href='https://line.me/R/ti/p/%40315ajptl'">點我加 LINE Bot</div>
-            <img src="https://raw.githubusercontent.com/albert20699/linebot/main/Translator/messageImage_1667489288623.jpg" alt="linebot"
-                onclick="window.location.href='https://line.me/R/ti/p/%40315ajptl'" style="margin-top: 15px;">
+            <a class="donation-button" href="https://line.me/R/ti/p/%40315ajptl" target="_blank" rel="noopener">點我加 LINE Bot</a>
+            <a href="https://line.me/R/ti/p/%40315ajptl" target="_blank" rel="noopener">
+                <img src="https://raw.githubusercontent.com/albert20699/linebot/main/Translator/messageImage_1667489288623.jpg" alt="linebot" style="margin-top: 15px;">
+            </a>
         </div>
     </div>
 </div>
-
 
 <div id="englishArea" style="display: none;">
     <div class="donation">
         <div class="donation-container">
             <h2>Details & <br>Precautions</h2>
-            <div class="donation-button" onclick="window.location.href='./notice.html'">Click to view</div>
+            <a class="donation-button" href="./notice.html">Click to view</a>
         </div>
         <div class="donation-container">
             <h2>Set Language Tutorial</h2>
-            <div class="donation-button" onclick="window.location.href='./setLanguage.html'">Click to view</div>
+            <a class="donation-button" href="./setLanguage.html">Click to view</a>
         </div>
         <div class="donation-container">
             <h2>Create Group Tutorial</h2>
-            <div class="donation-button" onclick="window.location.href='./createGroup.html'">Click to view</div>
+            <a class="donation-button" href="./createGroup.html">Click to view</a>
         </div>
         <div class="donation-container">
             <h2>Invite Bot Tutorial</h2>
-            <div class="donation-button" onclick="window.location.href='./joinLineBot.html'">Click to view</div>
+            <a class="donation-button" href="./joinLineBot.html">Click to view</a>
         </div>
         <div class="donation-container">
             <h2>Contact Me</h2>
-            <div class="donation-button" onclick="window.location.href='https://line.me/ti/p/jmQ7NUoDUH'">Developer's LINE</div>
-            <img src="/image/line_me.jpg" alt="王証彥"
-                onclick="window.location.href='https://line.me/ti/p/jmQ7NUoDUH'" style="margin-top: 15px;">
+            <a class="donation-button" href="https://line.me/ti/p/jmQ7NUoDUH" target="_blank" rel="noopener">Developer's LINE</a>
+            <a href="https://line.me/ti/p/jmQ7NUoDUH" target="_blank" rel="noopener">
+                <img src="/image/line_me.jpg" alt="王証彥" style="margin-top: 15px;">
+            </a>
         </div>
         <div class="donation-container">
             <h2>LINE Bot</h2>
-            <div class="donation-button" onclick="window.location.href='https://line.me/R/ti/p/%40315ajptl'">Click to add LINE Bot</div>
-            <img src="https://raw.githubusercontent.com/albert20699/linebot/main/Translator/messageImage_1667489288623.jpg" alt="linebot"
-                onclick="window.location.href='https://line.me/R/ti/p/%40315ajptl'" style="margin-top: 15px;">
+            <a class="donation-button" href="https://line.me/R/ti/p/%40315ajptl" target="_blank" rel="noopener">Click to add LINE Bot</a>
+            <a href="https://line.me/R/ti/p/%40315ajptl" target="_blank" rel="noopener">
+                <img src="https://raw.githubusercontent.com/albert20699/linebot/main/Translator/messageImage_1667489288623.jpg" alt="linebot" style="margin-top: 15px;">
+            </a>
         </div>
     </div>
 </div>
 
-
-<script>
-    var bodyElement = document.body;
-    var followElements = document.querySelectorAll('.donation-button');
-    // 創建一個 MutationObserver 實例，監視body元素上class屬性的變化
-    var observer = new MutationObserver(function (mutations) {
-        mutations.forEach(function (mutation) {
-            // 當class變化時，更新followElement的class
-            followElements.forEach(function (element) {
-                element.className = bodyElement.className.includes('dark-theme') ? 'donation-button dark-theme' : 'donation-button';
-            });
-        });
-    });
-    // 配置 MutationObserver 監視的目標和選項
-    var config = { attributes: true, attributeFilter: ['class'] };
-    // 開始監視
-    observer.observe(bodyElement, config);
-
-
-    function handleDonationClick(donationNumber) {
-        // 在這裡處理捐款按鈕點擊事件，您可以添加自定義的捐款處理邏輯
-        alert('捐款按鈕 ' + donationNumber + ' 被點擊了！');
-    }
-</script>
-<script>
-    // 取得 preferredLanguage 值
-    var preferredLanguage = localStorage.getItem('preferredLanguage');
-    // 根據 preferredLanguage 顯示相應的區域
-    if (preferredLanguage === "zh") {
-        document.getElementById('chineseArea').style.removeProperty('display');
-    } else if (preferredLanguage === "en") {
-        document.getElementById('englishArea').style.removeProperty('display');
-    } else {
-        document.getElementById('chineseArea').style.removeProperty('display');
-        localStorage.removeItem('preferredLanguage');
-    }
-</script>
+<script>showPreferredLanguage();</script>
 
         </section>
     </article>

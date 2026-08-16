@@ -168,9 +168,8 @@
             .then(data => {
                 if (data.status == "success") {
                     var nonPayData = JSON.parse(data.message)
-                    for (groupid in nonPayData) {
-                        // 獲得下拉式選單元素
-                        var dropdown = document.getElementById("dropdown");
+                    var dropdown = document.getElementById("dropdown");
+                    for (const groupid in nonPayData) {
                         // 創建一個新的選項元素
                         var newOption = document.createElement("option");
                         newOption.text = nonPayData[groupid];
